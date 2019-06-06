@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p class="date">
+        Published {{ post.publish }} by {{ post.author }}
+    </p>
+    {{ post.body | linebreaks }}
+
+    <p>
+        <a href="{% url "blog:post_share" post.id %}">
+            Share this post
+        </a>
+    </p>
+
+    <!-- with - to avoid accessing expensive methods multiple times -->
+    {% with comments.count as total_comments %}
+        <h2>
+        <!-- We use the pluralize template filter to display a plural suffix for the
+word comment, depending on the total_comments value -->
+            {{ total_comments }} comment {{ total_comments|pluralize }}
+        </h2>
+    {% endwith %}
+
+    {% for comment in comments %}
+        <div class="comment">
+            <p class="info">
+                <!-- We enumerate
+comments with the forloop.counter  variable, which contains the
+loop counter in each iteration
+Example output: Comment 8 by Andrey 3 june 2019 13.29
+-->
+                Comment {{ forloop.counter }} by {{ comment.name }}
+                {{ comment.created }}
+            </p>
+            {{ comment.body|linebreaks }}
+        </div>
+     {% empty %}
+        <p> There are no comments yet. </p>
+    {% endfor %}
+
+    {% if new_comment %}
+        <h2> Your comment has been added</h2>
+    {% else %}
+        <h2>Add a new comment</h2>
+        <form action="." method="post">
+            {{ comment_form.as_p }}
+            {%  csrf_token %}
+            <p><input type="submit" value="Add comment"></p>
+        </form>
+    {% endif %}
+{% endblock %}
