@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'collage/sidebar.html' %}
+{% load bootstrap3 %}
+{% block title %}Коллаж{% endblock %}
 
-<form action="{% url 'collage:main'%}", method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Загрузить</button>
-</form>
+{% block page %}
+    <div class="panel">
+        <div class="panel-heading bg-ruby">
+            <h4 class="panel-title text-center text-white">
+                Коллаж
+            </h4>
+        </div>
+        <div class="panel-body">
+            <form action="{% url 'collage:main' %}" , method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button type="submit" class="btn btn-red pull-right">Загрузить</button>
+            </form>
+        </div>
+    </div>
 
-
-</body>
-</html>
+{% endblock %}

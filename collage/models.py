@@ -3,7 +3,7 @@ from django.utils import timezone
 import urllib
 import requests
 import datetime
-# import flickrapi
+import flickrapi
 from django.conf import settings
 from django.core.cache import cache
 from tempfile import TemporaryFile
@@ -14,7 +14,7 @@ import cv2
 import os
 import numpy as np
 import uuid
-
+from model_utils import Choices
 from django.db import transaction
 
 class PhotoSize(models.Model):
@@ -131,10 +131,23 @@ class CutPhoto(models.Model):
 
         return cut_photo
 
+class Collage(models.Model):
 
+    SIZE_CHOICES = Choices(
+        (128, '128', '128'),  # 1 - db value, 2 - code value, 3 - human readable value
+        (256, '256', '256'),
+    )
+    photo_number = models.IntegerField(default=10)
+    cols_number = models.IntegerField(default=5)
+    create_date = models.DateTimeField(auto_now_add=True)
+    photo_tag = models.CharField(max_length=30, default='women')
+    # photo_size = models.ForeignKey(PhotoSize, on_delete=models.CASCADE, blank=True)
+    # photos = models.ManyToManyField(Photo, blank=True, related_name="photos")
+    photo_size = models.IntegerField(default=128, choices=SIZE_CHOICES)
+    final_img = models.ImageField(upload_to='collages', blank=True)
 
-class Collage:
-
+    class Meta:
+        ordering = ('-create_date',)
     # def get_photos_urls(self):
     #     flickr = flickrapi.FlickrAPI(
     #         settings.GLOBAL_SETTINGS['FLICKR_PUBLIC'],
@@ -361,4 +374,30 @@ class Collage:
 
 
 
+def get_photos_urls(count, tag, size):
+    flickr = flickrapi.FlickrAPI(
+        settings.GLOBAL_SETTINGS['FLICKR_PUBLIC'],
+        settings.GLOBAL_SETTINGS['FLICKR_SECRET'],
+        cache=True
+    )
+    extras = "url_s"        # 75 pixels per side and above
+    if size == 128:
+        extras = "url_q"    # 150 pixels per side and above
+    else:
+        extras = "url_n"    # 320 pixels per side and above
 
+    photos = flickr.walk(text=tag,
+                         per_page=int(count*1.2),  # may be you can try different numbers..
+                         extras=extras
+                         )
+    urls = []
+    num_of_photos = count - 1
+    for i, photo in enumerate(photos):
+        url = photo.get(extras, 'no url')
+        if url != 'no url':  # if url is empty - pass it and increment photo number
+            urls.append(url)
+        else:
+            num_of_photos += 1
+        if i >= num_of_photos:
+            break
+    return urls

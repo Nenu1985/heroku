@@ -1,0 +1,69 @@
+{% extends 'collage/sidebar.html' %}
+{% load bootstrap3 %}
+
+{{ variable }}
+{% block page %}
+    {% load static %}
+    {#    <script type="text/javascript" src="{% static  'collage/jquery-3.4.0.js' %}"></script>#}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    {#    <script src="{% static 'celery_pb/celery_progress.js' %}"></script>#}
+    <script>
+
+        $(document).ready(function () {
+            $('#collage_form').submit(function () { // catch the form's submit event
+                $.ajax({ // create an AJAX call...
+                    data: $(this).serialize() +
+                        "&query_type=" + "collage_launch", // get the form data
+                    type: $(this).attr('method'), // GET or POST
+                    url: $(this).attr('action'), // the file to call
+                    success: function (response) { // on success..
+                        //CeleryProgressBar.initProgressBar(data_celery_url)
+                        for (var i = 0; i < response.length; i += 4) {
+
+                            $("#some_text").append('<a href="' + response[i]     + '">Photo ' + (i + 0) + ' </a>')
+                            $("#some_text").append('<a href="' + response[i + 1] + '">Photo ' + (i + 1) + ' </a>')
+                            $("#some_text").append('<a href="' + response[i + 2] + '">Photo ' + (i + 2) + ' </a>')
+                            $("#some_text").append('<a href="' + response[i + 3] + '">Photo ' + (i + 3) + ' </a></br>')
+                        }
+
+                        {#response.each()#}
+                        {#                         $("#some_text")[0].textContent = response#}
+                        // $('#DIV_CONTAINING_FORM').innerText(data_celery_url); // update the DIV
+                    }
+                });
+                return false;
+            });
+        })
+    </script>
+
+    {% csrf_token %}
+
+    <!---------------------- PAGE CONTENT! ---------------------------->
+
+    <form id="collage_form" action="{% url 'collage:collage-form' %}" method="post">
+        {% csrf_token %}
+
+        {% bootstrap_form form %}
+
+        <input id="submit" type="submit" value="OK" class="btn btn-red pull-center">
+        <div id="DIV_CONTAINING_FORM">
+            <br>
+        </div>
+    </form>
+
+
+    <div class='progress-wrapper'>
+        <div id='progress-bar' class='progress-bar' style="background-color: #68a9ef; width: 0%;">&nbsp;</div>
+    </div>
+    <div id="progress-bar-message">Waiting for progress to start...</div>
+    <div class="spinner-border" role="status" id="spinner">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div id="div-photo">
+        <img id="photo" src="">
+    </div>
+
+    <div id="some_text">
+    </div>
+
+{% endblock %}

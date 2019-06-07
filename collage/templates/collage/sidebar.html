@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+
+{% block sidebar %}
+
+{% url 'collage:main' as collage_main %}
+{% url 'collage:collage-form' as collage_form %}
+{% url 'index' as home %}
+
+    <div class="list-group">
+        <span class="text-uppercase text-center">Коллаж</span>
+
+        <a href="{% url 'collage:main' %}"
+           class="list-group-item {% if request.path == collage_main %} active {% endif %}">Детектирование</a>
+
+        <a href="{% url 'collage:collage-form' %}"
+           class="list-group-item {% if request.path == collage_form %} active {% endif %}">Форма</a>
+
+        <a href="{% url 'index' %}"
+           class="list-group-item ">Домой</a>
+
+    </div>
+
+
+{% endblock %}

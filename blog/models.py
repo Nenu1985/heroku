@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
 
+
 # define our custom manager
 #     objects = models.Manager() # The default manager.
 #     published = PublishedManager() # Our custom manager.
@@ -58,8 +59,6 @@ class Post(models.Model):
                              self.publish.month,
                              self.publish.day,
                              self.slug])
-
-
     class Meta:
         ordering = ('-publish',)
 

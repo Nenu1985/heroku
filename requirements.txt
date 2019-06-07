@@ -6,3 +6,5 @@ opencv-python==4.1.0.25
 Pillow==6.0.0
 requests
 django-bootstrap3
+flickrapi
+django-model-utils

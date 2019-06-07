@@ -108,13 +108,18 @@ LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
 
-USE_I18N = True
+USE_I18N = True #
 
 USE_L10N = True
 
 USE_TZ = True
 
 LOGOUT_REDIRECT_URL = '/'
+
+GLOBAL_SETTINGS = {
+    'FLICKR_PUBLIC': '1f9874c1a8ea5a85acfd419dd0c2c7e1',
+    'FLICKR_SECRET': '67de04d2825fd397',
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/

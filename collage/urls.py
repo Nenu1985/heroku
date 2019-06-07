@@ -6,9 +6,8 @@ app_name = 'collage'  # Для темплейтов и конкретизаци�
 urlpatterns = [
 
     # ex: /
-    path('', views.index, name='index'),
     path('main/', views.main, name='main'),
-    path('index/', views.index),
-    path('image/<int:img_id>', views.show_image, name='show_image'),
+    path('image/<int:img_id>', views.show_image, name='show-image'),
+    path('collage_form/', views.collage_input_form, name='collage-form')
 
 ]

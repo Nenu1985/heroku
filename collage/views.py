@@ -1,12 +1,12 @@
 from django.shortcuts import render, reverse, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from collage.models import Photo, CutPhoto
-from .forms import InputUrlFrom
+from .forms import InputUrlFrom, CollageCreateForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_list_or_404, get_object_or_404
 
-import threading
+from collage.models import get_photos_urls
 
 from django.views.decorators.csrf import csrf_protect
 
@@ -15,11 +15,6 @@ from django.views.decorators.csrf import csrf_protect
 
 
 # Create your views here.
-def index(request):
-    collages = []
-    return render(request, 'collage/index.html', {'collages': collages})
-
-
 def show_image(request, img_id):
     img = get_object_or_404(CutPhoto, id=img_id)
 
@@ -47,7 +42,7 @@ def main(request):
             'form':input_form,
             'photo': photo,
         }
-        return redirect(reverse('collage:show_image', kwargs={'img_id': photo.id}))
+        return redirect(reverse('show-image', kwargs={'img_id': photo.id}))
 
 
 #
@@ -67,7 +62,43 @@ def get_photo(request, collage_id):
     return HttpResponse('get_photo')
 
 
-#
+def collage_input_form(request):
+    if request.method == 'POST':
+        if "query_type" in request.POST and request.POST["query_type"]:
+            query_type = request.POST["query_type"]
+        else:
+            query_type = 'none'
+
+        if query_type == 'collage_launch':
+            collage_input_form = CollageCreateForm(request.POST)
+            if collage_input_form.is_valid():
+                collage = collage_input_form.save(commit=False)
+            else:
+                return HttpResponse(status=405)
+
+            collage.save()
+            urls = get_photos_urls(collage.photo_number, collage.photo_tag, collage.photo_size)
+
+            #
+            # celery_status = get_celery_worker_status()
+            #
+            # if celery_status.get('ERROR', None):
+            #     return HttpResponse(celery_status.get('ERROR'))
+            # else:
+            #     print('Celery is OK!')
+            #
+            # res = launch_processing.delay(collage.pk)
+            # # res = my_task.delay(10);
+            # # launch_processing(collage.pk)
+            # response = reverse('celery_progress:task_status', kwargs={'task_id': res.task_id})
+            # response = reverse('celery_progress:task_status', kwargs={'task_id': 0})
+            return JsonResponse(urls, safe=False)
+    else:
+        context = {
+            'form': CollageCreateForm(),
+        }
+        return render(request, 'collage/collage_form.html', context)
+    return HttpResponse('Hello!')
 # def collage_input(request):
 #     if request.method == 'GET':
 #
