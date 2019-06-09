@@ -66,3 +66,5 @@ libice6
 
 
 ## Download: heroku git:clone -a myapp
+
+## heroku git:remote -a nenu1985
