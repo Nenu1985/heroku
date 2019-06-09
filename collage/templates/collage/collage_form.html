@@ -20,10 +20,15 @@
                         //CeleryProgressBar.initProgressBar(data_celery_url)
                         for (var i = 0; i < response.length; i += 4) {
 
-                            $("#some_text").append('<a href="' + response[i]     + '">Photo ' + (i + 0) + ' </a>')
-                            $("#some_text").append('<a href="' + response[i + 1] + '">Photo ' + (i + 1) + ' </a>')
-                            $("#some_text").append('<a href="' + response[i + 2] + '">Photo ' + (i + 2) + ' </a>')
-                            $("#some_text").append('<a href="' + response[i + 3] + '">Photo ' + (i + 3) + ' </a></br>')
+                            {#$("#some_text").append('<a href="' + response[i]     + '">Photo ' + (i + 0) + ' </a>')#}
+                            {#$("#some_text").append('<a href="' + response[i + 1] + '">Photo ' + (i + 1) + ' </a>')#}
+                            {#$("#some_text").append('<a href="' + response[i + 2] + '">Photo ' + (i + 2) + ' </a>')#}
+                            {#$("#some_text").append('<a href="' + response[i + 3] + '">Photo ' + (i + 3) + ' </a></br>')#}
+
+                             $("#some_text").append('<img src="' + response[i] + '">')
+                            $("#some_text").append('<img src="' + response[i + 1] + '">')
+                            $("#some_text").append('<img src="' + response[i + 2] + '">')
+                            $("#some_text").append('<img src="' + response[i + 3] + '"></br>')
                         }
 
                         {#response.each()#}

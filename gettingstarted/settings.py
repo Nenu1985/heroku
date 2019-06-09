@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'collage',
     'bootstrap3',
     'pizzashopapp',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,33 @@ EMAIL_USE_SSL = True
 EMAIL_PORT = 465  # 465 - SSL; 587 - TSL
 EMAIL_HOST_USER = 'nenuzhny112018@gmail.com'
 EMAIL_HOST_PASSWORD = 'nenu32590632'
+
+
+# Celery settings
+
+CELERY_BROKER_URL = 'redis://localhost'
+#
+# #: Only add pickle to this list if your broker is secured
+# #: from unwanted access (see userguide/security.html)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_IGNORE_RESULT = False
+
+#
+#
+#
+# # Redis settings:
+#
+REDIS_BACKEND = {
+    'HOST': 'localhost',
+    'PORT': 6379,
+    'DB': 0,
+}
+#
+REDIS_BACKEND_URL = 'redis://{host}:{port}/{db}'.format(
+    host=REDIS_BACKEND['HOST'],
+    port=REDIS_BACKEND['PORT'],
+    db=REDIS_BACKEND['DB'],
+)

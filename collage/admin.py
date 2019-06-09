@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PhotoSize, Collage
+from .models import Collage, Photo
 
 
 # Register your models here.
@@ -28,3 +28,12 @@ from .models import PhotoSize, Collage
 #         #'create_date',
 #
 #     ]
+
+@admin.register(Collage)
+class CollageAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Photo)
+class PhotoAdmin(admin.ModelAdmin):
+    pass

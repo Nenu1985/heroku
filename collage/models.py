@@ -401,3 +401,33 @@ def get_photos_urls(count, tag, size):
         if i >= num_of_photos:
             break
     return urls
+
+
+def download_photos_by_url(photo_url):
+    """
+    Download a photo by url, save it to DB in photo model, return Photo instance
+    :param photo_url: url photo(img) to download
+    :return: photo model instance
+    """
+    # file_name = f'collage\photo\\src{str(num)}.jpg'
+    try:
+        check_photo_exists = Photo.objects.filter(photo_url=photo_url).first()
+        if check_photo_exists:
+            return Photo.objects.filter(photo_url=photo_url).first()
+
+    except Exception as e:
+        print('download_photos_by_url' + e)
+
+    with TemporaryFile() as tf:
+        r = requests.get(photo_url, stream=True)
+        for chunk in r.iter_content(chunk_size=4096):
+            tf.write(chunk)
+
+        tf.seek(0)
+        with transaction.atomic():
+            photo = Photo()
+            photo.photo_url = photo_url
+            photo.date = timezone.now()
+            photo.img_field.save(basename(urlsplit(photo_url).path), File(tf))
+
+        return photo

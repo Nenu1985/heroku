@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_list_or_404, get_object_or_404
 
-from collage.models import get_photos_urls
+from collage.models import get_photos_urls, download_photos_by_url
 
 from django.views.decorators.csrf import csrf_protect
 
@@ -79,6 +79,14 @@ def collage_input_form(request):
             collage.save()
             urls = get_photos_urls(collage.photo_number, collage.photo_tag, collage.photo_size)
 
+            photos = []
+            local_photo_urls = []
+            for i, url in enumerate(urls):
+                photo = download_photos_by_url(url)
+                photos.append(photo)
+                local_photo_urls.append(photo.img_field.url)
+
+
             #
             # celery_status = get_celery_worker_status()
             #
@@ -92,7 +100,7 @@ def collage_input_form(request):
             # # launch_processing(collage.pk)
             # response = reverse('celery_progress:task_status', kwargs={'task_id': res.task_id})
             # response = reverse('celery_progress:task_status', kwargs={'task_id': 0})
-            return JsonResponse(urls, safe=False)
+            return JsonResponse(local_photo_urls, safe=False)
     else:
         context = {
             'form': CollageCreateForm(),
