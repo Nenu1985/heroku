@@ -76,3 +76,10 @@ Step 4: heroku run rake db:seed (if you have seed)
 ## LOGS:
 heroku logs --source app --dyno worker -n 200
 heroku logs -t --source app
+
+## Chage redirect address from 127.0.0.1 to nenuz.com:
+system32/drivers/etc/hosts
+127.0.0.1 nenuz.com
+in cmd run "ipconfig /flushdns" - clear dns cache
+turn of vpn in browser
+Profit!

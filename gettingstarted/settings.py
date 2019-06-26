@@ -25,8 +25,8 @@ SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be us
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nenuz.com', 'localhost', '127.0.0.1']
+# ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -220,10 +220,15 @@ LOGGING = {
 
 # google api key: AIzaSyBdvomEi7jeORG29PDt9crEq2Zvx42wHgY
 # key=API_KEY
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'AIzaSyBdvomEi7jeORG29PDt9crEq2Zvx42wHgY'  # Google Consumer Key
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'AIzaSyBdvomEi7jeORG29PDt9crEq2Zvx42wHgY'  # Google Consumer Key
+# gogle client id: 931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com
+# google secret client: Y_nU0dbLjQ2eVSpgyEvYtJi5
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y_nU0dbLjQ2eVSpgyEvYtJi5' # Google Consumer Secret
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
-    # 'account.authentication.EmailAuthBackend'
+    'account.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
 
 }
