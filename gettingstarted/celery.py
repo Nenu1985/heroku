@@ -9,6 +9,7 @@ from celery import Celery
 # add a string to this file: 'os.environ.setdefault('FORKED_BY_MULTIPROCESSING', '1')
 # AND start:
 # --->'celery -A gettingstarted worker -l info -E'
+# celery -A gettingstarted worker --loglevel=info
 #
 # INSTALL REDIS:
 # sudo apt-get install redis-server  # - install
@@ -21,11 +22,9 @@ from celery import Celery
 # 127.0.0.1:6379> ping
 # PONG
 
-
-
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gettingstarted.settings')
-# os.environ.setdefault('FORKED_BY_MULTIPROCESSING', '1') # only use on Windows!
+os.environ.setdefault('FORKED_BY_MULTIPROCESSING', '1')  # only use on Windows!
 
 app = Celery('gettingstarted')
 
@@ -34,11 +33,10 @@ app = Celery('gettingstarted')
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
-
+# app.config_from_object('django.conf:settings')
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
-#app.autodiscover_tasks(packages='Collag')
-
+# app.autodiscover_tasks(packages='gettingstarted')
 
 @app.task(bind=True)
 def debug_task(self):

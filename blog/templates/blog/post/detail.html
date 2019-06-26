@@ -18,11 +18,20 @@
     <!-- with - to avoid accessing expensive methods multiple times -->
     {% with comments.count as total_comments %}
         <h2>
-        <!-- We use the pluralize template filter to display a plural suffix for the
-word comment, depending on the total_comments value -->
+            <!-- We use the pluralize template filter to display a plural suffix for the
+    word comment, depending on the total_comments value -->
             {{ total_comments }} comment {{ total_comments|pluralize }}
         </h2>
     {% endwith %}
+
+    <h2>Similar posts</h2>
+    {% for post in similar_posts %}
+        <p>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </p>
+    {% empty %}
+        There are no similar posts yet.
+    {% endfor %}
 
     {% for comment in comments %}
         <div class="comment">
@@ -37,7 +46,7 @@ Example output: Comment 8 by Andrey 3 june 2019 13.29
             </p>
             {{ comment.body|linebreaks }}
         </div>
-     {% empty %}
+    {% empty %}
         <p> There are no comments yet. </p>
     {% endfor %}
 
@@ -47,7 +56,7 @@ Example output: Comment 8 by Andrey 3 june 2019 13.29
         <h2>Add a new comment</h2>
         <form action="." method="post">
             {{ comment_form.as_p }}
-            {%  csrf_token %}
+            {% csrf_token %}
             <p><input type="submit" value="Add comment"></p>
         </form>
     {% endif %}

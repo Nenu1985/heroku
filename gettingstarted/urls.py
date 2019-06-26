@@ -8,7 +8,12 @@ import hello.views
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+# from django.contrib.sitemaps.views import sitemap
+# from blog.sitemap import PostSitemap
+#
+# sitemaps = {
+#     'posts': PostSitemap,
+# }
 
 # To add a new path, first import the app:
 # import blog
@@ -26,6 +31,13 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('collage/', include('collage.urls', namespace='collage')),
     path('pizzashop/', include('pizzashopapp.urls', namespace='pizzapp')),
+    path('celery-progress/', include('celery_pb.urls')),  # the endpoint is configurable
+    path('social-auth/', include('social_django.urls', namespace='social')),
+    path('account/', include('account.urls', namespace='account')),
+    # path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+    #      name='django.contrib.sitemaps.views.sitemap')
+
+    # path('progressbarupload/', include('progressbarupload.urls')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

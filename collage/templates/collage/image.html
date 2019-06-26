@@ -6,8 +6,16 @@
 </head>
 <body>
 {% csrf_token %}
-
-
 <img src=" {{ photo.img_field.url }}">
+{% for photo in cut_photos %}
+    <img src="{{ photo.img_field.url }}">
+{% endfor %}
+
+<br><hr>
+
+{% for photo in cut_resized_photos %}
+    <img src="{{ photo.img_field.url }}">
+{% endfor %}
+
 </body>
 </html>

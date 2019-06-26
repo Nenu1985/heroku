@@ -5,6 +5,10 @@ from django.views.generic import ListView
 from .forms import EmailPostFrom, CommentForm
 from django.core.mail import send_mail
 from taggit.models import Tag
+from django.db.models import Count
+from django.contrib.postgres.search import SearchVector
+from .forms import EmailPostFrom, CommentForm, SearchForm
+
 
 # Create your views here.
 
@@ -12,7 +16,6 @@ from taggit.models import Tag
 # view list of post with paginator
 # http://127.0.0.1:8000/blog/
 def post_list(request, tag_slug=None):
-
     # using custom manager published
     object_list = Post.published.all()  # millions posts
     tag = None
@@ -35,20 +38,20 @@ def post_list(request, tag_slug=None):
     return render(request, 'blog/post/list.html',
                   {
                       'posts': posts,  # {Page} = <Page 1 of 3>
-                      'page': page,    # {str} = '2'
+                      'page': page,  # {str} = '2'
                       'tag': tag,
                   })
 
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(
-                            Post,
-                            slug=post,
-                            status='published',
-                            publish__year=year,
-                            publish__month=month,
-                            publish__day=day
-                        )
+        Post,
+        slug=post,
+        status='published',
+        publish__year=year,
+        publish__month=month,
+        publish__day=day
+    )
     # List of active comments for this post
     comments = post.comments.filter(active=True)
 
@@ -66,6 +69,19 @@ def post_detail(request, year, month, day, post):
             new_comment.save()
     else:  # GET
         comment_form = CommentForm()
+
+    # Retrieving posts by similarity p. 152
+    # List of similar posts
+    # FLAT: The values_list() QuerySet returns tuples with the
+    # values for the given fields. We pass flat=True to it to get a flat
+    # list like [1, 2, 3, ...]
+    post_tags_ids = post.tags.values_list('id', flat=True)
+
+    similar_posts = Post.published.filter(tags__in=post_tags_ids) \
+        .exclude(id=post.id)
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')) \
+                        .order_by('-same_tags', '-publish')[:4]
+
     return render(
         request,
         'blog/post/detail.html',
@@ -73,6 +89,7 @@ def post_detail(request, year, month, day, post):
          'comments': comments,
          'new_comment': new_comment,
          'comment_form': comment_form,
+         'similar_posts': similar_posts,
          },
     )
 
@@ -87,7 +104,6 @@ class PostListView(ListView):
 
 
 def post_share(request, post_id):
-
     # Retrieve post by id:
     post = get_object_or_404(Post, id=post_id, status='published')
     sent = False
@@ -118,3 +134,19 @@ def post_share(request, post_id):
                                                     'sent': sent},
                   )
 
+# Searching. Don't work with DB that not Postgres!!!
+def post_search(request):
+    form = SearchForm()
+    query = None
+    results = []
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            results = Post.objects.annotate(
+                search=SearchVector('title', 'body'),).filter(search=query)
+    return render(request,
+                  'blog/post/search.html',
+                  {'form': form,
+                   'query': query,
+                   'results': results})

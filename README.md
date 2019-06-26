@@ -67,4 +67,8 @@ libice6
 
 ## Download: heroku git:clone -a myapp
 
-## heroku git:remote -a nenu1985
+## CLEAR DB
+Step 1: heroku restart
+Step 2: heroku pg:reset DATABASE (no need to change the DATABASE)
+Step 3: heroku run rake db:migrate
+Step 4: heroku run rake db:seed (if you have seed)

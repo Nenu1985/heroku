@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block sidebar %}
+    <div class="list-group">
+        <span class="text-uppercase text-center">Pages:</span><br>
+
+        <a href="{% url 'account:login' %}"
+           class="list-group-item ">Custom login</a> <br>
+
+        <a href="{% url 'account:login-django' %}"
+           class="list-group-item ">django login view</a><br>
+
+        <a href="{% url 'account:logout-django' %}"
+           class="list-group-item ">Logout</a><br>
+
+    </div>
+{% endblock %}
+
+
+

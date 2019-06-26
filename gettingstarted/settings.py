@@ -13,10 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import django_heroku
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -27,8 +25,8 @@ SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be us
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -39,13 +37,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # "django.contrib.sites",
+    # "django.contrib.sitemaps",
+    "django.contrib.postgres",
     "hello",
     'taggit',  # app for tagging functionality,
     'blog',
     'collage',
     'bootstrap3',
     'pizzashopapp',
-    'djcelery',
+    # 'djcelery',
+    'celery_pb',
+    'social_django',
+    'account.apps.AccountConfig'
+
 ]
 
 MIDDLEWARE = [
@@ -78,15 +83,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "gettingstarted.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE" : "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'nenu',
+        'PASSWORD': 'Nenu32590632',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'mele',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'Nenu32590632',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 # Password validation
@@ -99,8 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
-]
 
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -109,13 +127,16 @@ LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
 
-USE_I18N = True #
+USE_I18N = True  #
 
 USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout-django'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
 
 GLOBAL_SETTINGS = {
     'FLICKR_PUBLIC': '1f9874c1a8ea5a85acfd419dd0c2c7e1',
@@ -129,18 +150,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+UPLOAD_ASYNC = os.path.join(MEDIA_ROOT, 'upload_async')
 
 django_heroku.settings(locals())
 
-# -------  EMAIL SETTINGS ------#
+# -------  EMAIL SETTINGS  ------#
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_USE_TLS = True
+# EMAIL_USE_TLS = True
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465  # 465 - SSL; 587 - TSL
 EMAIL_HOST_USER = 'nenuzhny112018@gmail.com'
 EMAIL_HOST_PASSWORD = 'nenu32590632'
-
 
 # Celery settings
 
@@ -170,3 +191,39 @@ REDIS_BACKEND_URL = 'redis://{host}:{port}/{db}'.format(
     port=REDIS_BACKEND['PORT'],
     db=REDIS_BACKEND['DB'],
 )
+
+FILE_UPLOAD_HANDLERS = (
+    "progressbarupload.uploadhandler.ProgressBarUploadHandler",
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
+# google api key: AIzaSyBdvomEi7jeORG29PDt9crEq2Zvx42wHgY
+# key=API_KEY
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'AIzaSyBdvomEi7jeORG29PDt9crEq2Zvx42wHgY'  # Google Consumer Key
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.ModelBackend',
+    # 'account.authentication.EmailAuthBackend'
+    'social_core.backends.google.GoogleOAuth2',
+
+}

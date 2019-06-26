@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Collage, Photo
+from .models import Collage, Photo, CutPhoto
 
 
 # Register your models here.
@@ -31,9 +31,17 @@ from .models import Collage, Photo
 
 @admin.register(Collage)
 class CollageAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id','cols_number', 'photo_tag', 'create_date',
+                    'photo_size', 'final_img',)
 
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'photo_url', 'img_location', 'date',)
+    date_hierarchy = 'date'
+
+
+@admin.register(CutPhoto)
+class CutPhotoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'img_location', 'date', 'photo_type')
+    date_hierarchy = 'date'

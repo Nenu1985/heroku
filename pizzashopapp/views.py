@@ -37,7 +37,10 @@ def pizzashop_account(request):
 
 @login_required(login_url='pizzapp:pizzashop-sign-in')
 def pizzashop_pizza(request):
-    pizzas = Pizza.objects.filter(pizzashop=request.user.pizzashop).order_by("-id")
+    try:
+        pizzas = Pizza.objects.filter(pizzashop=request.user.pizzashop).order_by("-id")
+    except:
+        return redirect('pizzapp:pizzashop-sign-in')
     return render(request, 'pizzashop/pizza.html', {
         'pizzas': pizzas
     })

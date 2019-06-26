@@ -1,132 +1,144 @@
 body {
-  padding-top: 30px;
-  background-color: #EDF2F5;
-  overflow: auto;
+    padding-top: 30px;
+    background-color: #EDF2F5;
+    overflow: auto;
 }
 
 .bg-ruby {
-  background-color: #7B2324;
+    background-color: #7B2324;
 }
 
 .bg-red {
-  background-color: #E31E25;
+    background-color: #E31E25;
+}
+
+.nav .text-white.nav-item {
+    padding: 15px 15px;
 }
 
 .text-white {
-  color: white;
+    color: white;
 }
 
 .btn-red {
-  color: white;
-  background-color: #E31E25;
+    color: white;
+    background-color: #E31E25;
 }
 
 .btn-red:hover,
 .btn-red:focus {
-  color: white;
-  background-color: #EC4D57;
-}
-/*  NAV BAR */
-.navbar {
-  margin-top: -30px;
-}
-/* SIDE BAR */
-.sidebar {
-  height: 100vh;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  padding: 0px;
-  background-color: #7B2324;
-  overflow: auto;
-  margin-top: 40px;
+    color: white;
+    background-color: #EC4D57;
 }
 
+/*  NAV BAR */
+.navbar {
+    margin-top: 0px;
+}
+
+/* SIDE BAR */
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0px;
+    background-color: #7B2324;
+    overflow: auto;
+    margin-top: 40px;
+}
+
+.right_sidebar {
+    background-color: #7B2324;
+}
+.right_sidebar .panel-body{
+    background-color: #3F1E1E;
+}
 /* SIDE BAR - HEADER */
 .sidebar > div:first-child {
-  padding: 30px 10px;
-  font-weight: bold;
-  font-size: 15px;
-  background-color: #3F1E1E;
+    padding: 30px 10px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #3F1E1E;
 
 }
 
 .sidebar > div:first-child > h4 {
-  color: #e0deeb;
+    color: #e0deeb;
 }
 
 .sidebar > div:first-child > h5 {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 /* SIDE BAR - LIST */
 .sidebar .list-group {
-  padding: 0;
-  background-color: #7B2324;
+    padding: 0;
+    background-color: #7B2324;
 }
 
 .sidebar .list-group > span {
-  color: #ffffff;
-  display: block;
-  margin-top: 20px;
-  padding: 20px 10px;
-  font-size: 16px;
-  font-weight: 300;
+    color: #ffffff;
+    display: block;
+    margin-top: 20px;
+    padding: 20px 10px;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .sidebar .list-group .list-group-item,
 .sidebar .list-group .list-group-item:focus {
-  background-color: #7B2324;
-  color: #ffffff;
-  border: 0;
-  padding-left: 10px;
-  padding-right: 30px;
+    background-color: #7B2324;
+    color: #ffffff;
+    border: 0;
+    padding-left: 10px;
+    padding-right: 30px;
 }
 
 .sidebar .list-group .list-group-item.active,
 .sidebar .list-group .list-group-item:hover {
-  background-color: #3F1E1E;
-  color: #e0deeb;
+    background-color: #3F1E1E;
+    color: #e0deeb;
 }
 
 .sidebar .list-group .list-group-item:first-child {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .sidebar .list-group .list-group-item .badge,
 .sidebar .list-group .list-group-item.active .badge {
-  background-color: #E31E25;
-  color: #e0deeb;
+    background-color: #E31E25;
+    color: #e0deeb;
 }
 
 /* SIDE BAR - LOGOUT */
 .sidebar > div:last-child {
-  padding: 30px;
+    padding: 30px;
 }
 
 .sidebar > div:last-child .btn {
-  width: 100%;
+    width: 100%;
 }
 
 /* CONTENT */
 .content {
-  padding-top: 0px;
-  padding-right: 40px;
-  padding-left: 40px;
-  padding-bottom: 0;
+    padding-top: 0px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 0;
 }
 
 .content .panel {
-  border: none;
+    border: none;
 }
 
 .table > thead > tr > th,
 .table > thead > tr > td {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .table,
 .table > thead > tr > th {
-  border-color: #E31E25;
+    border-color: #E31E25;
 }

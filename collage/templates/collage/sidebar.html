@@ -24,3 +24,21 @@
 
 
 {% endblock %}
+
+{% block right_sidebar %}
+    <div class="panel">
+        <div class="panel-heading bg-ruby">
+            <h4 class="panel-title text-center text-white">
+                Информация
+            </h4>
+        </div>
+        <div class="panel-body text-white">
+            {% for key, value in system_info.items %}
+                {{ key }} = {{ value }}<br>
+                {% for key2, value2 in value.items %}
+                    {{ key2 }} = {{ value2 }}<br>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
