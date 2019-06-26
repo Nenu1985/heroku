@@ -34,6 +34,7 @@ urlpatterns = [
     path('celery-progress/', include('celery_pb.urls')),  # the endpoint is configurable
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('account/', include('account.urls', namespace='account')),
+    path('images/', include('images.urls', namespace='images')),
     # path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
     #      name='django.contrib.sitemaps.views.sitemap')
 

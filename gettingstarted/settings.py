@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     # 'djcelery',
     'celery_pb',
     'social_django',
-    'account.apps.AccountConfig'
+    'account.apps.AccountConfig',
+    'images.apps.ImagesConfig',
 
 ]
 
