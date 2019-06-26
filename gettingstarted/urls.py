@@ -8,7 +8,6 @@ import hello.views
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from account import views as account
 from django.contrib.auth import views as auth_views
 # from django.contrib.sitemaps.views import sitemap
 # from blog.sitemap import PostSitemap
@@ -27,8 +26,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("", hello.views.index, name="index"),
-    path("my-page/", hello.views.my_page, name='my_page'),
-    path("db/", hello.views.db, name="db"),
+    path('hello/', include('hello.urls', namespace='hello')),
     path("admin/", admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
     path('collage/', include('collage.urls', namespace='collage')),

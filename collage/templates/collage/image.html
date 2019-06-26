@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% csrf_token %}
-<img src=" {{ photo.img_field.url }}">
-{% for photo in cut_photos %}
-    <img src="{{ photo.img_field.url }}">
-{% endfor %}
-
-<br><hr>
-
-{% for photo in cut_resized_photos %}
-    <img src="{{ photo.img_field.url }}">
-{% endfor %}
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block page %}
+    <p> Исходное изображение:<br>
+        <img src=" {{ photo.img_field.url }}">
+    </p>
+    <p> Обработанные (связанные с исходным, подверженные одной из обработок):<br>
+        {% for photo in cut_photos %}
+            <img src="{{ photo.img_field.url }}">
+        {% endfor %}
+    </p>
+    <br>
+    <hr>
+    Изображения сервера (сжатые):<br>
+    {% for photo in cut_resized_photos %}
+     <a href="{{ photo.img_field.url }}"><img src="{{ photo.img_field.url }}"
+                                              class="img-rounded"></a>
+    {% endfor %}
+{% endblock %}

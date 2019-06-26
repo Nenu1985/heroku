@@ -6,10 +6,13 @@
     <div class="panel">
         <div class="panel-heading bg-blue">
             <h4 class="panel-title text-center text-white">
-                Коллаж
+                Детектирование лиц
             </h4>
         </div>
         <div class="panel-body">
+            Скопируйте адрес изображения и нажмите "Загрузить". <br>
+            Отображятся исходное изображение,
+            обработанное (с обозначенными лицами) и остальные изображения с диска сервера.
             <form action="{% url 'collage:main' %}" , method="post">
                 {% csrf_token %}
                 {% bootstrap_form form %}

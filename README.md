@@ -72,3 +72,7 @@ Step 1: heroku restart
 Step 2: heroku pg:reset DATABASE (no need to change the DATABASE)
 Step 3: heroku run rake db:migrate
 Step 4: heroku run rake db:seed (if you have seed)
+
+## LOGS:
+heroku logs --source app --dyno worker -n 200
+heroku logs -t --source app

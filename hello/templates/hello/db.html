@@ -1,21 +1,16 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% block page %}
+    <div class="container">
+        <h2>Page was visited:</h2>
 
-{% block content %}
-  <div class="container">
+        <ul>
 
+            {% for greeting in greetings %}
+                <li>{{ greeting.when }}</li>
+            {% endfor %}
 
-<h2>Page View Report</h2>
+        </ul>
 
-
-<ul>
-
-{% for greeting in greetings %}
-    <li>{{ greeting.when }}</li>
-{% endfor %}
-
-</ul>
-
-</div>
+    </div>
 
 {% endblock %}

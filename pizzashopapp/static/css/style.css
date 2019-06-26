@@ -25,10 +25,21 @@ body {
     background-color: #E31E25;
 }
 
+.btn-blue {
+    color: white;
+    background-color: #2f34e3;
+}
+
 .btn-red:hover,
 .btn-red:focus {
     color: white;
     background-color: #EC4D57;
+}
+
+.btn-blue:hover,
+.btn-blue:focus {
+    color: white;
+    background-color: #5cb6ec;
 }
 
 /*  NAV BAR */
