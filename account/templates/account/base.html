@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% block sidebar %}
     <div class="list-group">
@@ -10,6 +9,14 @@
         <a href="{% url 'account:login-django' %}"
            class="list-group-item ">django login view</a><br>
 
+        <a href="{% url 'account:password_change' %}"
+           class="list-group-item ">Change password</a><br>
+
+        <a href="{% url 'password_reset' %}"
+           class="list-group-item ">Reset Password</a><br>
+
+        <a href="{% url 'account:register' %}" class="list-group-item"> Sign up</a>
+        <a href="{% url 'account:edit' %}" class="list-group-item"> Edit profile</a>
         <a href="{% url 'account:logout-django' %}"
            class="list-group-item ">Logout</a><br>
 

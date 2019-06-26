@@ -7,4 +7,9 @@ db.sqlite3
 getting-started/*
 .idea/*
 .idea
-media/
+.idea/
+.idea/workspace.xml
+
+image/*
+results.sqlite
+*.xml

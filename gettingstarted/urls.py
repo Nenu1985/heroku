@@ -8,6 +8,8 @@ import hello.views
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from account import views as account
+from django.contrib.auth import views as auth_views
 # from django.contrib.sitemaps.views import sitemap
 # from blog.sitemap import PostSitemap
 #
@@ -38,6 +40,20 @@ urlpatterns = [
     #      name='django.contrib.sitemaps.views.sitemap')
 
     # path('progressbarupload/', include('progressbarupload.urls')),
+# reset password urls
+    path('account/password_reset/',
+         auth_views.PasswordResetView.as_view(template_name='account/registration/password_reset_form.html'),
+         name='password_reset'),
+    path('account/password_reset/done/',
+         auth_views.PasswordResetDoneView.as_view(template_name='account/registration/password_reset_done.html'),
+         name='password_reset_done'),
+    path('account/reset/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(template_name='account/registration/password_reset_confirm.html'),
+         name='password_reset_confirm'),
+    path('account/reset/done/',
+         auth_views.PasswordResetCompleteView.as_view(template_name='account/registration/password_reset_complete.html'),
+         name='password_reset_complete'),
+
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
