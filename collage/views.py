@@ -28,16 +28,18 @@ def show_image(request, img_id):
         if not photo.img_field:
             photo.save_img_to_field()
 
-    # Create resized photos
-    for photo in Photo.objects.all():
-        photo.resize(128)
+    [photo.save_img_to_field() for photo in Photo.objects.all()]
 
-    cut_resized_photos = CutPhoto.objects.filter(photo_type=CutPhoto.TYPE_CHOICES.r128)
+    # Create resized photos
+    # for photo in Photo.objects.all():
+    #     photo.resize(128)
+
+    # cut_resized_photos = CutPhoto.objects.filter(photo_type=CutPhoto.TYPE_CHOICES.r128)
 
     return render(request, 'collage/image.html', {'photo': img,
                                                   'cut_photos': cut_photos,
                                                   'path': settings.UPLOAD_ASYNC,
-                                                  'cut_resized_photos': cut_resized_photos,})
+                                                  'cut_resized_photos': Photo.objects.all(),})
 
 
 @csrf_protect

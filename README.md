@@ -83,3 +83,6 @@ system32/drivers/etc/hosts
 in cmd run "ipconfig /flushdns" - clear dns cache
 turn of vpn in browser
 Profit!
+
+## Antonio Mele Django by example book source:
+https://github.com/guinslym/django-by-example-book/tree/master/Django_By_Example_Code

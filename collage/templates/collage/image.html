@@ -12,7 +12,7 @@
     <hr>
     Изображения сервера (сжатые):<br>
     {% for photo in cut_resized_photos %}
-     <a href="{{ photo.img_field.url }}"><img src="{{ photo.img_field.url }}"
-                                              class="img-rounded"></a>
+     <a href="{{ photo.photo_url }}"><img src="{{ photo.img_field.url }}"
+                                              class="img-rounded" style="width: 150px"></a>
     {% endfor %}
 {% endblock %}

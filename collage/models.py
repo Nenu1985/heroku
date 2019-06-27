@@ -365,11 +365,13 @@ def get_photos_urls(count, tag, size):
         settings.GLOBAL_SETTINGS['FLICKR_SECRET'],
         cache=True
     )
-    extras = "url_s"        # 75 pixels per side and above
-    if size == 128:
-        extras = "url_q"    # 150 pixels per side and above
-    else:
-        extras = "url_n"    # 320 pixels per side and above
+    extras = "url_o"        # 75 pixels per side and above
+    # if size == 128:
+    #     extras = "url_q"    # 150 pixels per side and above
+    # elif size == 256:
+    #     extras = "url_n"    # 320 pixels per side and above
+    # else:
+    #     extras = 'url_o'    # original size
 
     photos = flickr.walk(text=tag,
                          per_page=int(count*1.2),  # may be you can try different numbers..

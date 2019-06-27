@@ -18,6 +18,11 @@ body {
     /*height:100%;*/
 }
 
+#bookmarklet-example {
+    box-shadow: 0px 0px 8px 0 #42abff;
+    width: 500px;
+}
+
 p {
     line-height: 1.8;
 }
@@ -212,7 +217,7 @@ ul.messages li a.close {
 /* images */
 
 .image-preview, .image-detail {
-    max-width:300px;
+    max-width:150px;
     float:left;
     margin:0 20px 20px 0;
 }
