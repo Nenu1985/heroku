@@ -85,7 +85,7 @@ def edit(request):
             messages.error(request, 'Error updating your profile')
     else:
         user_form = UserEditForm(instance=request.user)
-        if not request.user.profile:
+        if not hasattr(request.user, 'profile'):
             Profile.objects.create(user=request.user)
         profile_form = ProfileEditForm(
             instance=request.user.profile)
