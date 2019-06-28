@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     # "django.contrib.sites",
     # "django.contrib.sitemaps",
     "django.contrib.postgres",
-    "hello",
+    'sorl.thumbnail',
+    'hello.apps.HelloConfig',
     'taggit',  # app for tagging functionality,
     'blog',
     'collage',
@@ -51,6 +52,9 @@ INSTALLED_APPS = [
     'social_django',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
+
+
+
 
 ]
 

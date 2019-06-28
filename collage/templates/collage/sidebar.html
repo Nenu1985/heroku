@@ -18,8 +18,8 @@
         <a href="{% url 'collage:collage-form' %}"
            class="list-group-item {% if request.path == collage_form %} active {% endif %}">Форма</a>
 
-    <a href="{% url 'images:create' %}"
-           class="list-group-item {% if request.path == images_create %} active {% endif %}">Создать изображение</a>
+    <a href="{% url 'account:dashboard' %}"
+           class="list-group-item {% if request.path == images_create %} active {% endif %}">Букмарклет</a>
 
         <a href="{% url 'index' %}"
            class="list-group-item ">Домой</a>

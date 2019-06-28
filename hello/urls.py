@@ -8,5 +8,5 @@ urlpatterns = [
     # post views
     path('success_message/', views.success_message, name='success'),
     path('error_message/', views.error_message, name='error'),
-    path("db/", views.db, name="db"),
+    path("greetings", views.greetings, name="greetings"),
 ]

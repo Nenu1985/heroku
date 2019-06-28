@@ -3,13 +3,14 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import Greeting
 
+
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, "hello/main_page.html")
 
 
-def db(request):
+def greetings(request):
 
     greeting = Greeting()
     greeting.save()
