@@ -6,103 +6,109 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="{% static 'blog.css' %}" rel="stylesheet">
+    {#    <link href="{% static 'blog.css' %}" rel="stylesheet">#}
     <link href="{% static 'css/base_account.css' %}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery-slim.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">
     </script>
 
 
 </head>
 <body>
-    <script>
-        var csrftoken = Cookies.get('csrftoken');
+<script>
+    var csrftoken = Cookies.get('csrftoken');
 
-        function csrfSafeMethod(method) {
+    function csrfSafeMethod(method) {
 // these HTTP methods do not require CSRF protection
-            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-        }
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
 
-        $.ajaxSetup({
-            beforeSend: function (xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
             }
-        });
+        }
+    });
 
-        $(document).ready(function () {
-            {% block domready %}
-            {% endblock %}
-        });
-    </script>
+    $(document).ready(function () {
+        {% block domready %}
+        {% endblock %}
+    });
+</script>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><b>H</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'pizzapp:home' %}" class="nav-link"> Pizzashop</a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-expanded="false"> Small projects
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="nav-item"><a href="{% url 'collage:main' %}" class="nav-link">Collage</a></li>
+                    <li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="{% url 'account:login' %}" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="{% url 'hello:vue-calc' %}" class="nav-link">Vue calc</a></li>
+
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav-item nav navbar-nav navbar-right">
+            {#                    <li class="navbar-right">#}
+            {#                        <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev#}
+            {#                            Center</a>#}
+            {#                    </li>#}
+            {#                    <li class="text-white nav-item">#}
+            {#                        <span>Bookmarks</span>#}
+            {% if request.user.is_authenticated %}
+                {#                            <ul class="navbar">#}
+                <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>
+                    <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>
+                </li>
+                <li {% if section == "images" %} class="nav-item selected"{% endif %}>
+                    <a href="#" class="nav-link">Images</a>
+                </li>
+                <li {% if section == "people" %} class="nav-item selected"{% endif %}>
+                    <a href="#" class="nav-link">People</a>
+                </li>
+
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+                <li class="nav-item navbar-text">Hello {{ request.user.username }},</li>
+                <li class=" nav-item"><a href="{% url "account:logout-django" %}" class="nav-link">Logout</a></li>
+
+            {% else %}
+                <li class="nav-item"><a href="{% url "account:login-django" %}" class="nav-link">Log-in</a></li>
+            {% endif %}
+
+        </ul>
+        {#                    </li>#}
+        {#                </ul>#}
+    </div>
+</nav>
 
 <div id='page_content' class="container-fluid">
     <div class="row">
-        <nav class="navbar navbar-default navbar-static-top navbar-inverse">
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'pizzapp:home' %}"><span class="glyphicon glyphicon-user"></span> Pizzashop</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Small projects
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{% url 'collage:main' %}">Collage</a></li>
-                            <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
-                            <li><a href="{% url 'account:login' %}">Login</a></li>
-
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {#                    <li class="navbar-right">#}
-                    {#                        <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev#}
-                    {#                            Center</a>#}
-                    {#                    </li>#}
-                    {#                    <li class="text-white nav-item">#}
-                    {#                        <span>Bookmarks</span>#}
-                    {% if request.user.is_authenticated %}
-                        {#                            <ul class="navbar">#}
-                        <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>
-                            <a href="{% url "account:dashboard" %}">My dashboard</a>
-                        </li>
-                        <li {% if section == "images" %}class="selected"{% endif %}>
-                            <a href="#">Images</a>
-                        </li>
-                        <li {% if section == "people" %}class="selected"{% endif %}>
-                            <a href="#">People</a>
-                        </li>
-
-                    {% endif %}
-
-                    {% if request.user.is_authenticated %}
-                        <li class="text-white nav-item">Hello {{ request.user.username }},</li>
-                        <li class=" nav-item"><a href="{% url "account:logout-django" %}">Logout</a></li>
-
-                    {% else %}
-                        <li class="nav-item"><a href="{% url "account:login-django" %}">Log-in</a></li>
-                    {% endif %}
-
-                </ul>
-                {#                    </li>#}
-                {#                </ul>#}
-            </div>
-        </nav>
-    </div>
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 sidebar">
+        <div class="col-sm-2">
             {% block sidebar %}{% endblock %}
         </div>
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 content">
+        <div class="col-sm-8 content">
             {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
@@ -116,12 +122,13 @@
             {% block page %}{% endblock %}
 
         </div>
-        <div class="col-lg-2 col-lg-offset-10 col-md-2 col-md-offset-10 col-sm-2 col-sm-offset-10 sidebar right_sidebar">
+        <div class="col-sm-2">
             {% block right_sidebar %}{% endblock %}
         </div>
 
     </div>
 </div>
+
 
 </body>
 </html>
