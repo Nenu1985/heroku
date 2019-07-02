@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import django_heroku
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,6 +29,13 @@ DEBUG = True
 # ALLOWED_HOSTS = ['nenuz.com', 'localhost', '127.0.0.1', 'c836bb8b.ngrok.io', 'nenu1985.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = []
+
+
+# use get_absolute_url() on a User instance to retrieve its corresponding URL
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('account:user_detail',
+                                        args=[u.username])
+}
 
 # Application definition
 
@@ -53,9 +61,6 @@ INSTALLED_APPS = [
     'social_django',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
-
-
-
 
 ]
 
@@ -230,11 +235,13 @@ LOGGING = {
 # gogle client id: 931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com
 # google secret client: Y_nU0dbLjQ2eVSpgyEvYtJi5
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y_nU0dbLjQ2eVSpgyEvYtJi5' # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com'  # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y_nU0dbLjQ2eVSpgyEvYtJi5'  # Google Consumer Secret
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
 
 }
+
+THUMBNAIL_DEBUG = True

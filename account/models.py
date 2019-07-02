@@ -39,6 +39,8 @@ class Contact(models.Model):
 
 
 # Add following field to User dynamically
+# symmetrical means that if i follow you, it doesn't mean that you
+# follow me
 User.add_to_class('following',
                   models.ManyToManyField('self',
                                          through=Contact,

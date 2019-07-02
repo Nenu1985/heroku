@@ -35,7 +35,10 @@ a {
 a:hover {
     color:#00a74f;
 }
-
+.nav-item.selected a.nav-link{
+    color: #000;
+    font-style: oblique;
+}
 h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
 
 h1 {

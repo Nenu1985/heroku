@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-
+from django.contrib.auth.decorators import login_required
 app_name = 'account'
 
 urlpatterns = [
@@ -19,6 +19,10 @@ urlpatterns = [
          auth_views.PasswordChangeView.as_view(template_name='account/registration/password_change_done.html'),
          name='password_change_done'),
     path('register/', views.register, name='register'),
-    path('edit/', views.edit, name='edit')
+    path('edit/', views.edit, name='edit'),
+    path('users/<username>/', views.user_detail, name='user_detail'),
+    path('users/', login_required(views.UserListView.as_view()), name='user_list'),
+    path('users_c/<username>/', login_required(views.UserDetailView.as_view()), name='user_detail_c'),
+
 
 ]

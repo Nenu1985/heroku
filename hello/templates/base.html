@@ -81,11 +81,15 @@
                 <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>
                     <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>
                 </li>
-                <li {% if section == "images" %} class="nav-item selected"{% endif %}>
+                <li class="nav-item {% if section == "images" %}selected{% endif %}">
                     <a href="{% url 'images:list' %}" class="nav-link">Images</a>
                 </li>
-                <li {% if section == "people" %} class="nav-item selected"{% endif %}>
-                    <a href="#" class="nav-link">People</a>
+                <li {% if section == "people" %}
+                    class="nav-item selected"
+                    {% else %}
+                    class="nav-item"
+                {% endif %}>
+                    <a href="{% url 'account:user_list' %}" class="nav-link">People</a>
                 </li>
 
             {% endif %}
