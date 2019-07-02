@@ -25,7 +25,8 @@ SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be us
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nenuz.com', 'localhost', '127.0.0.1', 'c836bb8b.ngrok.io', 'nenu1985.herokuapp.com']
+# ALLOWED_HOSTS = ['nenuz.com', 'localhost', '127.0.0.1', 'c836bb8b.ngrok.io', 'nenu1985.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = []
 
 # Application definition

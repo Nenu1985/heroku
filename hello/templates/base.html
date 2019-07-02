@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {#    <link href="{% static 'blog.css' %}" rel="stylesheet">#}
     <link href="{% static 'css/base_account.css' %}" rel="stylesheet">
-    <script src="{% static 'js/jquery-slim.min.js' %}"></script>
+    {#    <script src="{% static 'js/jquery-slim.min.js' %}"></script>#}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">
     </script>
@@ -81,7 +82,7 @@
                     <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>
                 </li>
                 <li {% if section == "images" %} class="nav-item selected"{% endif %}>
-                    <a href="#" class="nav-link">Images</a>
+                    <a href="{% url 'images:list' %}" class="nav-link">Images</a>
                 </li>
                 <li {% if section == "people" %} class="nav-item selected"{% endif %}>
                     <a href="#" class="nav-link">People</a>
