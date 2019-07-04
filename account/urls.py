@@ -20,9 +20,9 @@ urlpatterns = [
          name='password_change_done'),
     path('register/', views.register, name='register'),
     path('edit/', views.edit, name='edit'),
-    path('users/<username>/', views.user_detail, name='user_detail'),
+    path('users/<username>/', login_required(views.UserDetailView.as_view()), name='user_detail'),
     path('users/', login_required(views.UserListView.as_view()), name='user_list'),
-    path('users_c/<username>/', login_required(views.UserDetailView.as_view()), name='user_detail_c'),
+    # path('users_c/<username>/', , name='user_detail_c'),
 
 
 ]
