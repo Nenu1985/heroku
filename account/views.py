@@ -14,7 +14,7 @@ from common.decorators import ajax_required
 from django.utils.decorators import method_decorator
 from .models import Contact
 from actions.utils import create_action
-
+from actions.models import Action
 
 # Create your views here.
 
@@ -44,10 +44,21 @@ def user_login(request):
 # @login_required(login_url='account:login-django')
 @login_required
 def dashboard(request):
+    # Display all actions by default
+    actions = Action.objects.exclude(user=request.user)
+    following_ids = request.user.following.values_list('id',
+                                                       flat=True)
+    if following_ids:
+        # If user is following others, retrieve only their actions
+        actions = actions.filter(user_id__in=following_ids)\
+            .select_related('user', 'user__profile')\
+            .prefetch_related('target')
+    actions = actions[:10]
+
     return render(request,
                   'account/dashboard.html',
-                  {'section': 'dashboard'}
-                  )
+                  {'section': 'dashboard',
+                   'actions': actions, })
 
 
 def register(request):
