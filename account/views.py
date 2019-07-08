@@ -2,13 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import LoginForm, UserRegistrationForm, \
     UserEditForm, ProfileEditForm
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from common.decorators import ajax_required
+from django.utils.decorators import method_decorator
+from .models import Contact
+
+
 # Create your views here.
 
 
@@ -100,6 +106,7 @@ class UserListView(ListView):
     template_name = 'account/user/list.html'
     context_object_name = 'users'
 
+
 class UserDetailView(DetailView):
     model = User
     template_name = 'account/user/detail.html'
@@ -111,3 +118,26 @@ class UserDetailView(DetailView):
         # Add in a QuerySet of all the books
         context['section'] = 'people'
         return context
+
+
+class UserFollowView(View):
+    @method_decorator(ajax_required, login_required)
+    def post(self, request):
+        user_id = request.POST.get('id')
+        action = request.POST.get('action')
+        if user_id and action:
+            try:
+                user = User.objects.get(id=user_id)
+                if action == 'follow':
+                    Contact.objects.get_or_create(
+                        user_from=request.user,
+                        user_to=user)
+                else:
+                    Contact.objects.filter(user_from=request.user,
+                                           user_to=user).delete()
+                return JsonResponse({'status': 'ok'})
+            except User.DoesNotExist:
+                return JsonResponse({'status': 'ko'})
+        return JsonResponse({'status': 'ko'})
+
+
