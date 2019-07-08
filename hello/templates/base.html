@@ -85,7 +85,7 @@
                     <a href="{% url 'images:list' %}" class="nav-link">Images</a>
                 </li>
                 <li {% if section == "people" %} class="nav-item selected"{% endif %}>
-                    <a href="#" class="nav-link">People</a>
+                    <a href="{% url 'account:user-list' %}" class="nav-link">People</a>
                 </li>
 
             {% endif %}

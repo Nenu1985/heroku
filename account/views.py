@@ -7,8 +7,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import LoginForm, UserRegistrationForm, \
     UserEditForm, ProfileEditForm
-
-
+from django.views.generic import ListView, DetailView
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -93,3 +93,21 @@ def edit(request):
                   'account/edit.html',
                   {'user_form': user_form,
                    'profile_form': profile_form})
+
+
+class UserListView(ListView):
+    queryset = User.objects.filter(is_active=True)
+    template_name = 'account/user/list.html'
+    context_object_name = 'users'
+
+class UserDetailView(DetailView):
+    model = User
+    template_name = 'account/user/detail.html'
+    context_object_name = 'user'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['section'] = 'people'
+        return context

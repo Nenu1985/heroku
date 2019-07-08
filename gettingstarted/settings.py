@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import django_heroku
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +29,10 @@ DEBUG = True
 # ALLOWED_HOSTS = ['nenuz.com', 'localhost', '127.0.0.1', 'c836bb8b.ngrok.io', 'nenu1985.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = []
-
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('account:user-detail',
+                                        args=[u.pk])
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,7 +45,7 @@ INSTALLED_APPS = [
     # "django.contrib.sites",
     # "django.contrib.sitemaps",
     "django.contrib.postgres",
-    'sorl.thumbnail',
+
     'hello.apps.HelloConfig',
     'taggit',  # app for tagging functionality,
     'blog',
@@ -53,6 +57,7 @@ INSTALLED_APPS = [
     'social_django',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
+    'sorl.thumbnail',
 
 
 
@@ -100,8 +105,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'blog',
-        'USER': 'nenu',
-        'PASSWORD': 'Nenu32590632',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
     }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',

@@ -19,6 +19,7 @@ urlpatterns = [
          auth_views.PasswordChangeView.as_view(template_name='account/registration/password_change_done.html'),
          name='password_change_done'),
     path('register/', views.register, name='register'),
-    path('edit/', views.edit, name='edit')
-
+    path('edit/', views.edit, name='edit'),
+    path('users/', views.UserListView.as_view(), name='user-list'),
+    path('users/<int:pk>/', views.UserDetailView.as_view(), name='user-detail'),
 ]
