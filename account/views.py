@@ -13,6 +13,7 @@ from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
 from django.utils.decorators import method_decorator
 from .models import Contact
+from actions.utils import create_action
 
 
 # Create your views here.
@@ -62,6 +63,7 @@ def register(request):
             new_user.save()
             # Create the user profile
             Profile.objects.create(user=new_user)
+            create_action(new_user, 'has created an account')
             return render(request,
                           'account/register_done.html',
                           {'new_user': new_user})
@@ -132,6 +134,7 @@ class UserFollowView(View):
                     Contact.objects.get_or_create(
                         user_from=request.user,
                         user_to=user)
+                    create_action(request.user, 'is following', user)
                 else:
                     Contact.objects.filter(user_from=request.user,
                                            user_to=user).delete()
