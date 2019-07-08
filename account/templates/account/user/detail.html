@@ -4,7 +4,7 @@
 {% block page %}
     <h1>{{ user.get_full_name }}</h1>
     <div class="profile-info">
-        {% thumbnail user.profile.photo "180x180" crop="100%" as im %}
+        {% thumbnail user.profile.photo "180" crop="100%" as im %}
             <img src="{{ im.url }}" class="user-detail">
         {% endthumbnail %}
     </div>
@@ -12,6 +12,7 @@
         <span class="count">
             <span class="total">{{ total_followers }}</span>
             follower{{ total_followers|pluralize }}
+
         </span>
         <a href="#" data-id="{{ user.id }}" data-action="{% if request.user in user.followers.all %}un{% endif %}follow"
            class="follow button">
@@ -21,6 +22,11 @@
                 Unfollow
             {% endif %}
         </a>
+        <p>
+        {% for follower in user.followers.all %}
+            {{ follower }} <br>
+        {% endfor %}
+        </p>
         <div id="image-list" class="image-container">
             {% include "images/image/list_ajax.html" with images=user.images_created.all %}
         </div>

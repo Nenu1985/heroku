@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
     'sorl.thumbnail',
+    'actions',
 
 
 

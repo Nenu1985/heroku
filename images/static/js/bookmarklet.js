@@ -1,6 +1,6 @@
 (function(){
   var jquery_version = '2.1.4';
-  var site_url = 'https://f6149815.ngrok.io/';
+  var site_url = 'https://1b597cd0.ngrok.io/';
   // var site_url = 'https://nenu1985.herokuapp/';
   var static_url = site_url + 'static/';
   var min_width = 100;
