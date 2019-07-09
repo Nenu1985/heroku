@@ -86,3 +86,9 @@ Profit!
 
 ## Antonio Mele Django by example book source:
 https://github.com/guinslym/django-by-example-book/tree/master/Django_By_Example_Code
+
+## Dump and load data
+Dump data:
+```
+python manage.py dumpdata account images auth.User --indent 4 -o db.json
+```
