@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'taggit',  # app for tagging functionality,
     'blog',
     'collage',
-    'bootstrap4',
+    # 'bootstrap4',
     'crispy_forms',
     'pizzashopapp',
     # 'djcelery',

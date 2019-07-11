@@ -1,6 +1,6 @@
 {% extends 'collage/sidebar.html' %}
 
-{% load bootstrap3 %}
+{% load crispy_forms_tags %}
 
 
 {{ variable }}
@@ -63,7 +63,7 @@
     <form id="collage_form" class="my-form" action="{% url 'collage:collage-form' %}" method="post">
         {% csrf_token %}
 
-        {% bootstrap_form form %}
+        {{ form|crispy }}
 
         <input id="submit" type="submit" value="OK" class="btn btn-red pull-center">
         <a href="{% url 'collage:delete-upload-async' %}" class="btn btn-red pull-right">Удалить медиа</a>

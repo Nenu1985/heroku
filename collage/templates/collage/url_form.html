@@ -1,5 +1,5 @@
 {% extends 'collage/sidebar.html' %}
-{% load bootstrap3 %}
+{% load crispy_forms_tags %}
 {% block title %}Коллаж{% endblock %}
 
 {% block page %}
@@ -15,7 +15,7 @@
             обработанное (с обозначенными лицами) и остальные изображения с диска сервера.
             <form action="{% url 'collage:main' %}" , method="post">
                 {% csrf_token %}
-                {% bootstrap_form form %}
+                {{ form|crispy }}
                 <button type="submit" class="btn btn-red pull-right">Загрузить</button>
             </form>
         </div>

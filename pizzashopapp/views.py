@@ -111,4 +111,5 @@ def auto_login(request):
     vanya = User.objects.get(username='Vanya')
     if vanya:
         request.user = authenticate(username='Vanya', password='1234')
+        login(request, request.user)
     return request
