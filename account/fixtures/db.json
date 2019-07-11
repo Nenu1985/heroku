@@ -72,6 +72,68 @@
     }
 },
 {
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$dWbXKgXtYMDt$30uliQnRsONwN1ezHks0DJMP3v+i63FDilaKqOM8BBo=",
+        "last_login": "2019-07-11T07:08:43.953Z",
+        "is_superuser": false,
+        "username": "Vanya",
+        "first_name": "Ivan",
+        "last_name": "Ivanov",
+        "email": "serg@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-07-11T07:08:43.481Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "pizzashopapp.pizzashop",
+    "pk": 1,
+    "fields": {
+        "owner": 8,
+        "name": "PizzaBy",
+        "phone": "375295564664",
+        "address": "Gomel",
+        "logo": "pizzashop_logo/PizzaShopDay_sJZJOXo.jpg"
+    }
+},
+{
+    "model": "pizzashopapp.pizza",
+    "pk": 1,
+    "fields": {
+        "pizzashop": 1,
+        "name": "\u0414\u0435\u0440\u0435\u0432\u0435\u043d\u0441\u043a\u0430\u044f",
+        "short_description": "\u0432\u043a\u0443\u0441\u043d\u0430\u044f \u043f\u0440\u0435\u0432\u043a\u0443\u0441\u043d\u0430\u044f",
+        "image": "pizza_images/Derevenskaya_aAUMd3v.png",
+        "price": 100
+    }
+},
+{
+    "model": "pizzashopapp.pizza",
+    "pk": 2,
+    "fields": {
+        "pizzashop": 1,
+        "name": "\u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u043a\u0430",
+        "short_description": "\u0441 \u043a\u043e\u043b\u0431\u0430\u0441\u043e\u0439 \u0438 \u0442\u0435\u0441\u0442\u043e\u043c",
+        "image": "pizza_images/Margarita.png",
+        "price": 105
+    }
+},
+{
+    "model": "pizzashopapp.pizza",
+    "pk": 3,
+    "fields": {
+        "pizzashop": 1,
+        "name": "\u0413\u0430\u0432\u0430\u0439\u0441\u043a\u0430\u044f",
+        "short_description": "\u0441 \u0442\u0440\u043e\u043f\u0438\u0447\u0435\u0441\u043a\u0438\u043c\u0438 \u0444\u0440\u0443\u043a\u0442\u0430\u043c\u0438",
+        "image": "pizza_images/Gavaiskaya.png",
+        "price": 110
+    }
+},
+{
     "model": "images.image",
     "pk": 1,
     "fields": {
@@ -82,7 +144,10 @@
         "image": "images/2019/07/08/tutby.jpg",
         "description": "From tut",
         "created": "2019-07-08",
-        "users_like": []
+        "total_likes": 1,
+        "users_like": [
+            5
+        ]
     }
 },
 {
@@ -96,6 +161,7 @@
         "image": "images/2019/07/08/tutby_lIETQJj.jpg",
         "description": "skyscraper",
         "created": "2019-07-08",
+        "total_likes": 0,
         "users_like": []
     }
 },
@@ -110,7 +176,11 @@
         "image": "images/2019/07/08/tutby_nmoK3d1.jpg",
         "description": "spiderman",
         "created": "2019-07-08",
-        "users_like": []
+        "total_likes": 2,
+        "users_like": [
+            3,
+            6
+        ]
     }
 },
 {
@@ -124,6 +194,7 @@
         "image": "images/2019/07/08/sweet-pair.jpg",
         "description": "nice",
         "created": "2019-07-08",
+        "total_likes": 0,
         "users_like": []
     }
 },
@@ -138,23 +209,11 @@
         "image": "images/2019/07/08/.jpg",
         "description": "",
         "created": "2019-07-08",
+        "total_likes": 2,
         "users_like": [
-            3
+            3,
+            5
         ]
-    }
-},
-{
-    "model": "images.image",
-    "pk": 6,
-    "fields": {
-        "user": 4,
-        "title": "\u0412\u0441\u0435\u0433\u0434\u0430 \u043f\u0440\u0438\u0445\u043e\u0434\u0438\u0442 \u0432 \u043f\u043b\u0430\u0442\u044c\u0435 \u0431\u0435\u043b\u043e\u043c",
-        "slug": "v_plate_belom",
-        "url": "https://img.tyt.by/390x260c/n/sport/01/1/uimbldon_svitolina_rts2krbm.jpg",
-        "image": "images/2019/07/08/.jpg_wJMuDcc",
-        "description": "",
-        "created": "2019-07-08",
-        "users_like": []
     }
 },
 {
@@ -168,6 +227,7 @@
         "image": "images/2019/07/08/tutby_CTKLM83.jpg",
         "description": "Big Black Bus",
         "created": "2019-07-08",
+        "total_likes": 0,
         "users_like": []
     }
 },
@@ -182,6 +242,7 @@
         "image": "images/2019/07/08/clock.jpg",
         "description": "fitness clock",
         "created": "2019-07-08",
+        "total_likes": 1,
         "users_like": [
             5
         ]
@@ -198,7 +259,10 @@
         "image": "images/2019/07/08/bmw.jpg",
         "description": "a car",
         "created": "2019-07-08",
-        "users_like": []
+        "total_likes": 1,
+        "users_like": [
+            4
+        ]
     }
 },
 {
