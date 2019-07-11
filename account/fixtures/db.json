@@ -76,7 +76,7 @@
     "pk": 8,
     "fields": {
         "password": "pbkdf2_sha256$150000$dWbXKgXtYMDt$30uliQnRsONwN1ezHks0DJMP3v+i63FDilaKqOM8BBo=",
-        "last_login": "2019-07-11T07:08:43.953Z",
+        "last_login": "2019-07-11T10:49:53.390Z",
         "is_superuser": false,
         "username": "Vanya",
         "first_name": "Ivan",
@@ -333,6 +333,15 @@
     "pk": 5,
     "fields": {
         "user": 6,
+        "date_of_birth": null,
+        "photo": ""
+    }
+},
+{
+    "model": "account.profile",
+    "pk": 7,
+    "fields": {
+        "user": 8,
         "date_of_birth": null,
         "photo": ""
     }

@@ -90,7 +90,7 @@ https://github.com/guinslym/django-by-example-book/tree/master/Django_By_Example
 ## Dump and load data
 Dump data:
 ```
-python manage.py dumpdata account images auth.User --indent 4 -o db.json
+python manage.py dumpdata account images auth.User pizzashopapp --indent 4 -o db.json
 ```
 Load data:
 ```
