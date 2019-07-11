@@ -11,8 +11,9 @@ def home(request):
     return redirect('pizzapp:pizzashop-home')
 
 
-@login_required(login_url='pizzapp:pizzashop-sign-in')
+# @login_required(login_url='pizzapp:pizzashop-sign-in')
 def pizzashop_home(request):
+
     return redirect('pizzapp:pizzashop-pizza')
 
 

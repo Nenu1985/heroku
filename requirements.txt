@@ -6,7 +6,7 @@ django-taggit>=1.1.0
 opencv-python>=4.1.0.25
 Pillow>=6.0.0
 requests
-django-bootstrap3>=11.0.0
+django-crispy-forms>=1.7.2
 flickrapi
 celery>=4.3.0
 django-model-utils>=3.1.2

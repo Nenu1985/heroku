@@ -1,59 +1,59 @@
 @import url(http://fonts.googleapis.com/css?family=Muli);
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: helvetica, sans-serif;
-}
+/*body {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*font-family: helvetica, sans-serif;*/
+/*}*/
 
-#sidebar {
-    float: left;
-    width: 130px;
-    padding-top: 30px;
-    padding-right: 50px;
-    padding-left: 50px;
-    padding-bottom: 50px;
-    background: #efefef;
-    margin-top: 50px;
-    /*height:100%;*/
-}
+/*#sidebar {*/
+    /*float: left;*/
+    /*width: 130px;*/
+    /*padding-top: 30px;*/
+    /*padding-right: 50px;*/
+    /*padding-left: 50px;*/
+    /*padding-bottom: 50px;*/
+    /*background: #efefef;*/
+    /*margin-top: 50px;*/
+    /*!*height:100%;*!*/
+/*}*/
 
-#bookmarklet-example {
-    box-shadow: 0px 0px 8px 0 #42abff;
-    width: 500px;
-}
+/*#bookmarklet-example {*/
+    /*box-shadow: 0px 0px 8px 0 #42abff;*/
+    /*width: 500px;*/
+/*}*/
 
-p {
-    line-height: 1.8;
-}
+/*p {*/
+    /*line-height: 1.8;*/
+/*}*/
 
-a {
-    color: #12c064;
-    text-decoration: none;
-}
+/*a {*/
+    /*color: #12c064;*/
+    /*text-decoration: none;*/
+/*}*/
 
-a:hover {
-    color: #00a74f;
-}
+/*a:hover {*/
+    /*color: #00a74f;*/
+/*}*/
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Muli', sans-serif;
-    font-weight: normal;
-}
+/*h1, h2, h3, h4, h5, h6 {*/
+    /*font-family: 'Muli', sans-serif;*/
+    /*font-weight: normal;*/
+/*}*/
 
-h1 {
-    border-bottom: 1px solid #bbb;
-    padding: 0 0 10px 0;
-    margin: 10px 0 20px 0;
-}
+/*h1 {*/
+    /*border-bottom: 1px solid #bbb;*/
+    /*padding: 0 0 10px 0;*/
+    /*margin: 10px 0 20px 0;*/
+/*}*/
 
-h2 {
-    margin: 30px 0 20px;
-}
+/*h2 {*/
+    /*margin: 30px 0 20px;*/
+/*}*/
 
-ol {
-    line-height: 1.5;
-}
+/*ol {*/
+    /*line-height: 1.5;*/
+/*}*/
 
 #header {
     padding: 10px 100px;
@@ -102,50 +102,50 @@ ol {
     padding-top: 4px;
 }
 
-#content {
-    float: left;
-    padding-top: 50px;
-    padding-right: 100px;
-    padding-left: 100px;
-    padding-bottom: 30px;
-    background-color: azure;
-}
+/*#content {*/
+    /*float: left;*/
+    /*padding-top: 50px;*/
+    /*padding-right: 100px;*/
+    /*padding-left: 100px;*/
+    /*padding-bottom: 30px;*/
+    /*background-color: azure;*/
+/*}*/
 
 /* forms */
-form {
-    overflow: auto;
-}
+/*form {*/
+    /*!*overflow: auto;*!*/
+/*}*/
 
-form p {
-    width: 100%;
-    overflow: auto;
-}
+/*form p {*/
+    /*width: 100%;*/
+    /*overflow: auto;*/
+/*}*/
 
-label {
-    float: left;
-    clear: both;
-    color: #333;
-    margin-bottom: 4px;
-}
+/*label {*/
+    /*float: left;*/
+    /*clear: both;*/
+    /*color: #333;*/
+    /*margin-bottom: 4px;*/
+/*}*/
 
-input, textarea {
-    clear: both;
-    float: left;
-    margin: 0 0 10px;
-    background: #efefef;
-    border: 0;
-    padding: 6px 10px;
-    font-size: 14px;
-}
+/*input, textarea {*/
+    /*clear: both;*/
+    /*float: left;*/
+    /*margin: 0 0 10px;*/
+    /*background: #efefef;*/
+    /*border: 0;*/
+    /*padding: 6px 10px;*/
+    /*font-size: 14px;*/
+/*}*/
 
-input[type=submit], a.button {
-    font-weight: bold;
-    background: #12c064;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 14px;
-    text-transform: uppercase;
-}
+/*input[type=submit], a.button {*/
+    /*font-weight: bold;*/
+    /*background: #12c064;*/
+    /*color: #fff;*/
+    /*padding: 10px 20px;*/
+    /*font-size: 14px;*/
+    /*text-transform: uppercase;*/
+/*}*/
 
 .errorlist {
     color: #cc0033;
@@ -222,9 +222,9 @@ ul.messages li a.close {
     text-shadow: none;
 }
 
-.login-form {
-    float: left;
-}
+/*.login-form {*/
+    /*float: left;*/
+/*}*/
 
 /* social-auth */
 .social {
@@ -334,7 +334,7 @@ a.like, a.follow {
 }
 
 #people-list .user {
-    width: 180px;
+    width: 190px;
     float: left;
     overflow: auto;
     padding: 10px;

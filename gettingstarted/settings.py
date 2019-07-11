@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'taggit',  # app for tagging functionality,
     'blog',
     'collage',
-    'bootstrap3',
+    'bootstrap4',
+    'crispy_forms',
     'pizzashopapp',
     # 'djcelery',
     'celery_pb',
@@ -59,11 +60,9 @@ INSTALLED_APPS = [
     'images.apps.ImagesConfig',
     'sorl.thumbnail',
     'actions',
-
-
-
-
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
