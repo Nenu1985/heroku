@@ -144,7 +144,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = 'account:login'
+LOGIN_URL = 'account:login-django'
 LOGOUT_URL = 'account:logout-django'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'

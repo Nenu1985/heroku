@@ -10,10 +10,10 @@ from pizzashopapp.models import Pizza
 def home(request):
     return redirect('pizzapp:pizzashop-home')
 
-
 # @login_required(login_url='pizzapp:pizzashop-sign-in')
 def pizzashop_home(request):
-
+    if not hasattr(request.user, 'pizzashop'):
+        request = auto_login(request)
     return redirect('pizzapp:pizzashop-pizza')
 
 
@@ -36,8 +36,10 @@ def pizzashop_account(request):
     })
 
 
-@login_required(login_url='pizzapp:pizzashop-sign-in')
+# @login_required(login_url='pizzapp:pizzashop-sign-in')
 def pizzashop_pizza(request):
+    if not hasattr(request.user, 'pizzashop'):
+        request = auto_login(request)
     try:
         pizzas = Pizza.objects.filter(pizzashop=request.user.pizzashop).order_by("-id")
     except:
@@ -102,3 +104,11 @@ def pizzashop_sign_up(request):
         'user_form': user_form,
         'pizzashop_form': pizzashop_form
     })
+
+
+def auto_login(request):
+    # Auto-login with test user Vanya:
+    vanya = User.objects.get(username='Vanya')
+    if vanya:
+        request.user = authenticate(username='Vanya', password='1234')
+    return request
