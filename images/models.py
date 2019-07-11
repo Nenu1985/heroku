@@ -32,7 +32,7 @@ class Image(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)  # slug  generation for title
+            self.slug = slugify(self.title)  # slug generation for title
         super(Image, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
