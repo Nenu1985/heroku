@@ -38,7 +38,7 @@ def image_create(request):
                    'form': form})
 
 
-# Create your views here.
+# Create your views here
 def image_detail(request, img_id, slug):
     image = get_object_or_404(Image, id=img_id, slug=slug)
     # increment total image views by 1
