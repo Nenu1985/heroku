@@ -53,14 +53,15 @@
             <li class="nav-item active">
                 <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item">
-                <a href="{% url 'pizzapp:home' %}" class="nav-link"> Pizzashop</a>
-            </li>
+{#            <li class="nav-item">#}
+{#                <a href="{% url 'pizzapp:home' %}" class="nav-link"> Pizzashop</a>#}
+{#            </li>#}
             <li class="dropdown nav-item">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                   aria-expanded="false"> Small projects
+                   aria-expanded="false"> Projects
                 </a>
                 <ul class="dropdown-menu" role="menu">
+                    <li class="nav-item"><a href="{% url 'pizzapp:home' %}" class="nav-link">Pizzashop</a></li>
                     <li class="nav-item"><a href="{% url 'collage:main' %}" class="nav-link">Collage</a></li>
                     <li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="{% url 'account:login' %}" class="nav-link">Login</a></li>

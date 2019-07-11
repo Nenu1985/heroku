@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from django.contrib.auth.decorators import login_required
 app_name = 'blog'
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path('<int:post_id>/share/',
          views.post_share, name='post_share'),
     path('search/', views.post_search, name='post_search'),
+    path('create/', login_required(views.PostCreateView.as_view()), name='post-create'),
 ]
