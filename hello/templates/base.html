@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {#    <link href="{% static 'blog.css' %}" rel="stylesheet">#}
     <link href="{% static 'css/base_account.css' %}" rel="stylesheet">
+    <link href="{% static 'css/shop.css' %}" rel="stylesheet">
     {#    <script src="{% static 'js/jquery-slim.min.js' %}"></script>#}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -53,9 +54,9 @@
             <li class="nav-item active">
                 <a href="/" class="nav-link">Home</a>
             </li>
-{#            <li class="nav-item">#}
-{#                <a href="{% url 'pizzapp:home' %}" class="nav-link"> Pizzashop</a>#}
-{#            </li>#}
+            {#            <li class="nav-item">#}
+            {#                <a href="{% url 'pizzapp:home' %}" class="nav-link"> Pizzashop</a>#}
+            {#            </li>#}
             <li class="dropdown nav-item">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                    aria-expanded="false"> Projects
@@ -79,15 +80,15 @@
             {#                        <span>Bookmarks</span>#}
             {% if request.user.is_authenticated %}
                 {#                            <ul class="navbar">#}
-{#                <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>#}
-{#                    <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>#}
-{#                </li>#}
-{#                <li {% if section == "images" %} class="nav-item selected"{% endif %}>#}
-{#                    <a href="{% url 'images:list' %}" class="nav-link">Images</a>#}
-{#                </li>#}
-{#                <li {% if section == "people" %} class="nav-item selected"{% endif %}>#}
-{#                    <a href="{% url 'account:user-list' %}" class="nav-link">People</a>#}
-{#                </li>#}
+                {#                <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>#}
+                {#                    <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>#}
+                {#                </li>#}
+                {#                <li {% if section == "images" %} class="nav-item selected"{% endif %}>#}
+                {#                    <a href="{% url 'images:list' %}" class="nav-link">Images</a>#}
+                {#                </li>#}
+                {#                <li {% if section == "people" %} class="nav-item selected"{% endif %}>#}
+                {#                    <a href="{% url 'account:user-list' %}" class="nav-link">People</a>#}
+                {#                </li>#}
 
             {% endif %}
 
