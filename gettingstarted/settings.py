@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'images.apps.ImagesConfig',
     'sorl.thumbnail',
     'actions',
+    'shop',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

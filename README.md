@@ -96,3 +96,12 @@ Load data:
 ```
 python manage.py loaddata db.json
 ```
+
+## Product shop functionality
+• Creating the product catalog models, adding them to the administration site,
+and building the basic views to display the catalog
+• Building a shopping cart system using Django sessions to allow users
+to keep selected products while they browse the site
+• Creating the form and functionality to place orders
+• Sending an asynchronous email confirmation to users when they place
+an order
