@@ -1,0 +1,106 @@
+[
+  {
+    "model": "shop.category",
+    "pk": 1,
+    "fields": {
+      "name": "Tea",
+      "slug": "tea"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Green tea",
+      "slug": "green-tea",
+      "image": "products/2019/07/13/green-tea-in-a-cup.jpg",
+      "description": "Green tea is the healthiest beverage on the planet. It is loaded with antioxidants and nutrients that have powerful effects on the body. These include improved brain function, fat loss, a lower risk of cancer and many other impressive benefits. Below are 10 health benefits of green tea that are supported by studies.",
+      "price": "15.00",
+      "stock": 47,
+      "available": true,
+      "created": "2019-07-13T06:27:29.115Z",
+      "updated": "2019-07-13T08:53:32.732Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Black tea",
+      "slug": "black-tea",
+      "image": "products/2019/07/13/black_tea.jpg",
+      "description": "Black tea is a type of tea that is more oxidized than oolong, green, and white teas. Black tea is generally stronger in flavour than the less oxidized teas. All four types are made from leaves of the shrub (or small tree) Camellia sinensis",
+      "price": "13.00",
+      "stock": 68,
+      "available": true,
+      "created": "2019-07-13T08:30:43.723Z",
+      "updated": "2019-07-13T08:52:30.173Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Red tea",
+      "slug": "red-tea",
+      "image": "products/2019/07/13/red_tea.jpg",
+      "description": "Rooibos, meaning 'red bush'; is a broom-like member of the Fabaceae family of plants that grows in South Africa's fynbos. The leaves are used to make a herbal tea that is called by the names: rooibos, bush tea, red tea, or redbush tea.",
+      "price": "16.00",
+      "stock": 18,
+      "available": true,
+      "created": "2019-07-13T08:31:21.906Z",
+      "updated": "2019-07-13T08:53:01.591Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "category": 1,
+      "name": "Powdered tea",
+      "slug": "powdered-tea",
+      "image": "products/2019/07/13/powdered_tea.jpg",
+      "description": "Instant tea is a powder in which water is added, in order to reconstitute it into a cup of tea. The earliest form of instant tea was developed in the United Kingdom in 1885. A patent was granted for a paste made of concentrated tea extract, sugar, and evaporated milk, which became tea when hot water was added.",
+      "price": "9.00",
+      "stock": 784,
+      "available": true,
+      "created": "2019-07-13T08:31:52.602Z",
+      "updated": "2019-07-13T08:54:09.008Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+      "category": 1,
+      "name": "Strange tea",
+      "slug": "strange-tea",
+      "image": "",
+      "description": "",
+      "price": "12.00",
+      "stock": 32,
+      "available": true,
+      "created": "2019-07-13T08:36:16.035Z",
+      "updated": "2019-07-13T08:36:16.036Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+      "category": 1,
+      "name": "White tea",
+      "slug": "white-tea",
+      "image": "products/2019/07/13/white_tea.jpg",
+      "description": "White tea is made from the Camellia sinensis plant. Its leaves and buds are picked just before they are fully open, when they're covered in fine white hairs. This is where white tea gets its name ( 1 ). Green tea and black tea are also made from the Camellia sinensis plant.",
+      "price": "22.00",
+      "stock": 64,
+      "available": true,
+      "created": "2019-07-13T08:55:28.726Z",
+      "updated": "2019-07-13T08:55:28.726Z"
+    }
+  }
+]
