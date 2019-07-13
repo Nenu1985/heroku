@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'actions',
     'shop',
+    'cart',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -242,5 +243,6 @@ AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
-
 }
+
+CART_SESSION_ID = 'cart'
