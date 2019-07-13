@@ -47,7 +47,7 @@ body {
     border-collapse: collapse;
 }
 
-table th, table td {
+#shop table th, table td {
     text-align:left;
     font-size:14px;
     padding:10px;
@@ -142,7 +142,7 @@ table th, table td {
     padding-top:4px;
 }
 
-#content {
+#shop #content {
     overflow:visible;
     padding: 20px 0px 0px 20px;
 }
@@ -184,7 +184,7 @@ table th, table td {
     overflow:hidden;
 }
 
-.product-list .item {
+#shop .product-list .item {
     width:25%;
     padding:10px 20px 10px 0;
     float:left;
@@ -192,40 +192,40 @@ table th, table td {
     line-height:1.2;
 }
 
-.product-list .item img {
+#shop .product-list .item img {
     width:100%;
     margin-bottom:8px;
 }
 
-.product-detail {
+#shop .product-detail {
     text-align:justify;
 }
 
-.product-detail .price {
+#shop .product-detail .price {
     color:#333;
     font-size:28px;
     font-weight:bold;
 }
 
-.product-detail img {
+#shop .product-detail img {
     width:40%;
     float:left;
     padding:0 20px 20px 0;
 }
 
-.product-detail h1 {
+#shop .product-detail h1 {
     margin-bottom:0;
 }
 
-.product-detail h2 {
+#shop .product-detail h2 {
     margin-top:10px;
 }
 
-.order-form {
+#shop .order-form {
     float:left;
 }
 
-.order-info {
+#shop .order-info {
     float:right;
     width:300px;
     background:#efefef;
@@ -234,17 +234,17 @@ table th, table td {
     border-bottom:4px solid #5993bb;
 }
 
-.order-info h3 {
+#shop .order-info h3 {
     color:#5993bb;
 }
 
-.order-info ul li {
+#shop .order-info ul li {
     margin:0;
     padding:0;
     font-size:14px;
 }
 
-.order-info p {
+#shop .order-info p {
     font-weight:bold;
     float:right;
 }
@@ -253,51 +253,51 @@ table th, table td {
     float:right;
 }
 
-.neg {
+#shop .neg {
     color:#dc1616;
 }
 
-.languages {
+#shop .languages {
    float:right;
    padding-top:4px;
    font-size:14px;
 }
 
-.languages ul {
+#shop .languages ul {
     list-style:none;
     margin:0;
     padding:0;
     float:left;
 }
 
-.languages ul li {
+#shop .languages ul li {
     float:left;
     margin:0 0 0 10px;
     font-size:14px;
 }
 
-.languages p {
+#shop .languages p {
     float:left;
     margin:0;
 }
 
-.recommendations {
+#shop .recommendations {
     clear:both;
 }
 
-.recommendations div {
+#shop .recommendations div {
     float:left;
 }
 
-.recommendations img {
+#shop .recommendations img {
     width:200px
 }
 
-.recommendations p {
+#shop .recommendations p {
     clear:both;
 }
 
-.recommendations.cart {
+#shop .recommendations.cart {
     width:60%;
     float:left;
     overflow:auto;
