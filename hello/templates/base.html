@@ -70,7 +70,7 @@
                 </ul>
             </li>
         </ul>
-        <ul class="nav-item nav navbar-nav navbar-right">
+        <ul class="nav-item nav navbar-nav navbar-right" style="float: right">
             {#                    <li class="navbar-right">#}
             {#                        <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev#}
             {#                            Center</a>#}
@@ -79,15 +79,15 @@
             {#                        <span>Bookmarks</span>#}
             {% if request.user.is_authenticated %}
                 {#                            <ul class="navbar">#}
-                <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>
-                    <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>
-                </li>
-                <li {% if section == "images" %} class="nav-item selected"{% endif %}>
-                    <a href="{% url 'images:list' %}" class="nav-link">Images</a>
-                </li>
-                <li {% if section == "people" %} class="nav-item selected"{% endif %}>
-                    <a href="{% url 'account:user-list' %}" class="nav-link">People</a>
-                </li>
+{#                <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>#}
+{#                    <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>#}
+{#                </li>#}
+{#                <li {% if section == "images" %} class="nav-item selected"{% endif %}>#}
+{#                    <a href="{% url 'images:list' %}" class="nav-link">Images</a>#}
+{#                </li>#}
+{#                <li {% if section == "people" %} class="nav-item selected"{% endif %}>#}
+{#                    <a href="{% url 'account:user-list' %}" class="nav-link">People</a>#}
+{#                </li>#}
 
             {% endif %}
 

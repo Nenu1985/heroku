@@ -157,17 +157,12 @@ def post_search(request):
 class PostCreateView(CreateView):
     model = Post
     fields = ['tags', 'title', 'body']
-    # exclude('slug', 'author',)
     template_name = 'blog/post/create.html'
 
     def form_valid(self, form):
         author = self.request.user
-
         slug = slugify(form.cleaned_data['title'])
-        # form.cleaned_data['slug'] = slug
-        # author.blog_posts.add(form.instance)
 
-        # form.cleaned_data['status'] = 'published'
         post = form.save(commit=False)
         post.author = author
         post.slug = slug

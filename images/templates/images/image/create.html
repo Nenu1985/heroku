@@ -1,7 +1,10 @@
-{% extends "collage/sidebar.html" %}
+{% extends "images/sidebar.html" %}
 {% block title %}Bookmark an image{% endblock %}
 {% block page %}
     <h1>Bookmark an image</h1>
+    <br>
+    <h2>To create an image, please, use bookmarklet!</h2>
+    <br>
     <a href="{{ request.GET.url }} ">
         <img src="{{ request.GET.url }}" class="image-preview img-thumbnail">
     </a>

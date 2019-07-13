@@ -1,4 +1,4 @@
-{% extends "account/base.html" %}
+{% extends "images/sidebar.html" %}
 {% block title %}Dashboard{% endblock %}
 {% block page %}
     <h1>Dashboard</h1>
@@ -15,7 +15,7 @@
     <p>Now you can open any site with images and click <b>"Bookmarke it"</b> to bookmark liked images!</p>
     <p>You can also <a href="{% url "account:edit" %}">edit your profile</a> or <a
             href="{% url "account:password_change" %}">change your password</a>.<p>
-
+    <hr>
     <h2>What's happening</h2>
     <div id="action-list">
         {% for action in actions %}
