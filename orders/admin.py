@@ -3,7 +3,8 @@ from .models import Order, OrderItem
 import csv
 import datetime
 from django.http import HttpResponse
-
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 # Register your models here.
 class OrderItemInline(admin.TabularInline):
@@ -46,11 +47,24 @@ def export_to_csv(modeladmin, request, queryset):
 export_to_csv.short_description = 'Export to CSV'
 
 
+# add a link to each Order object in the list display page of the
+# administration site
+def order_detail(obj):
+    return mark_safe('<a href="{}">View</a>'.format(
+        reverse('orders:admin-order-detail', args=[obj.id])))
+
+
+# We have to set the allow_tags attribute of this
+# callable to True to avoid auto-escaping
+order_detail.allow_tags = True
+
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email',
                     'address', 'postal_code', 'city', 'paid',
-                    'created', 'updated']
+                    'created', 'updated',
+                    order_detail, ]
 
     list_filter = ['paid', 'created', 'updated']
     #  inline allows you to include a model for appearing on the
