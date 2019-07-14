@@ -1,11 +1,49 @@
 from django.contrib import admin
 from .models import Order, OrderItem
+import csv
+import datetime
+from django.http import HttpResponse
 
 
 # Register your models here.
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     raw_id_fields = ['product']
+
+
+def export_to_csv(modeladmin, request, queryset):
+    opts = modeladmin.model._meta
+    # tell the browser that the response has to be treated as a CSV fle
+    response = HttpResponse(content_type='text/csv')
+    # Content-Disposition header to indicate that the HTTP response
+    # contains an attached fle
+    response['Content-Disposition'] = 'attachment; \
+        filename={}.csv'.format(opts.verbose_name)
+    writer = csv.writer(response)
+
+    # get the model felds dynamically using the get_fields() method of
+    # the model _meta options. We exclude many-to-many and one-to-many
+    # relationships
+    fields = [field for field in opts.get_fields() if not field.many_to_many and not field.one_to_many]
+
+    # Write a first row with header information
+    writer.writerow([field.verbose_name for field in fields])
+
+    # Write data rows
+    for obj in queryset:
+        data_row = []
+        for field in fields:
+            value = getattr(obj, field.name)
+            if isinstance(value, datetime.datetime):
+                value = value.strftime('%d/%m/%Y')
+            data_row.append(value)
+        writer.writerow(data_row)
+    return response
+
+
+# We customize the display name for the action in the template
+# by setting a short_description attribute to the function
+export_to_csv.short_description = 'Export to CSV'
 
 
 @admin.register(Order)
@@ -18,4 +56,5 @@ class OrderAdmin(admin.ModelAdmin):
     #  inline allows you to include a model for appearing on the
     # same edit page as the parent model
     inlines = [OrderItemInline]
+    actions = [export_to_csv]
 # admin.site.register(Order, OrderAdmin)
