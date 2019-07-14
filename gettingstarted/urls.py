@@ -37,6 +37,7 @@ urlpatterns = [
     path('images/', include('images.urls', namespace='images')),
     path('shop/', include('shop.urls', namespace='shop')),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('orders/', include('orders.urls', namespace='orders')),
     path('account/password_reset/',
          auth_views.PasswordResetView.as_view(template_name='account/registration/password_reset_form.html'),
          name='password_reset'),
