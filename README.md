@@ -105,3 +105,15 @@ to keep selected products while they browse the site
 • Creating the form and functionality to place orders
 • Sending an asynchronous email confirmation to users when they place
 an order
+
+## Celery
+launch:
+```
+celery -A gettingstarted worker -l info
+```
+Web-based celery monitor flower:
+```
+celery -A gettingstarted flower
+```
+Now you can watch celery tasks at 
+http://localhost:5555/dashboard

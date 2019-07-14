@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'social_django',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
-    'sorl.thumbnail',
+    # 'sorl.thumbnail',
     'actions',
     'shop',
     'cart',
@@ -178,17 +178,15 @@ EMAIL_PORT = 465  # 465 - SSL; 587 - TSL
 EMAIL_HOST_USER = 'nenuzhny112018@gmail.com'
 EMAIL_HOST_PASSWORD = 'nenu32590632'
 
-# Celery settings
-
-CELERY_BROKER_URL = 'redis://localhost'
-#
-# #: Only add pickle to this list if your broker is secured
-# #: from unwanted access (see userguide/security.html)
+# Celery settings for work with Redis:
+# CELERY_BROKER_URL = 'redis://localhost'
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost//'
+# Other Celery settings
 CELERY_ACCEPT_CONTENT = ['json']
-CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
+# CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
-CELERY_IGNORE_RESULT = False
+# CELERY_IGNORE_RESULT = False
 
 #
 #
