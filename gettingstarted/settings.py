@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
+    'paypal.standard.ipn',
+    'payment',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -246,3 +248,7 @@ AUTHENTICATION_BACKENDS = {
 }
 
 CART_SESSION_ID = 'cart'
+
+# django-paypal settings
+PAYPAL_RECEIVER_EMAIL = 'nenuzhny85@gmail.com'
+PAYPAL_TEST = True
