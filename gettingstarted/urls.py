@@ -40,6 +40,7 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace='orders')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('payment/', include('payment.urls', namespace='payment')),
+    path('coupons/', include('coupons.urls', namespace='coupons')),
     path('account/password_reset/',
          auth_views.PasswordResetView.as_view(template_name='account/registration/password_reset_form.html'),
          name='password_reset'),

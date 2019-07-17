@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'orders',
     'paypal.standard.ipn',
     'payment',
+    'coupons',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

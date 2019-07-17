@@ -190,6 +190,7 @@ body {
     float:left;
     text-align:center;
     line-height:1.2;
+    box-sizing: unset;
 }
 
 #shop .product-list .item img {
