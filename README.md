@@ -114,6 +114,13 @@ chap 2.
 • Create custom views for the administration site
 • Generate PDF invoices dynamically
 
+chap 3.
+• Creating a coupon system to apply discounts
+• Adding internationalization to your project
+• Using Rosetta to manage translations
+• Translating models using django-parler
+• Building a product recommendation engine
+
 ## Celery
 launch:
 ```

@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
+
 # Register your models here.
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
@@ -59,12 +60,21 @@ def order_detail(obj):
 order_detail.allow_tags = True
 
 
+def order_pdf(obj):
+    return mark_safe('<a href="{}">PDF</a>'.format(
+        reverse('orders:admin-order-pdf', args=[obj.id])))
+
+
+order_pdf.short_description = 'Invoice'
+
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email',
                     'address', 'postal_code', 'city', 'paid',
                     'created', 'updated',
-                    order_detail, ]
+                    order_detail,
+                    order_pdf, ]
 
     list_filter = ['paid', 'created', 'updated']
     #  inline allows you to include a model for appearing on the
