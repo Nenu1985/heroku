@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'social_django',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
-    # 'sorl.thumbnail',
+    'sorl.thumbnail',
     'actions',
     'shop',
     'cart',

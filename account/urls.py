@@ -26,6 +26,10 @@ urlpatterns = [
     path('users/', login_required(views.UserListView.as_view()), name='user-list'),
     path('users/follow/', views.UserFollowView.as_view(), name='user-follow'),
     path('users/<int:pk>/', login_required(views.UserDetailView.as_view()), name='user-detail'),
+    path('users/<username>/', login_required(views.UserDetailView.as_view()), name='user_detail'),
+    # path('users/', login_required(views.UserListView.as_view()), name='user_list'),
+    # path('users/follow/', views.UserFollowView.as_view(), name='user_follow'),
+    # path('users_c/<username>/', , name='user_detail_c'),
 
 ]
 if settings.DEBUG:
