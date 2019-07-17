@@ -86,3 +86,22 @@ Profit!
 
 ## Antonio Mele Django by example book source:
 https://github.com/guinslym/django-by-example-book/tree/master/Django_By_Example_Code
+
+## Dump and load data
+Dump data:
+```
+python manage.py dumpdata account images auth.User pizzashopapp --indent 4 -o db.json
+```
+Load data:
+```
+python manage.py loaddata db.json
+```
+
+## Product shop functionality
+• Creating the product catalog models, adding them to the administration site,
+and building the basic views to display the catalog
+• Building a shopping cart system using Django sessions to allow users
+to keep selected products while they browse the site
+• Creating the form and functionality to place orders
+• Sending an asynchronous email confirmation to users when they place
+an order

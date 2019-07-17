@@ -29,14 +29,10 @@ DEBUG = True
 # ALLOWED_HOSTS = ['nenuz.com', 'localhost', '127.0.0.1', 'c836bb8b.ngrok.io', 'nenu1985.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = []
-
-
-# use get_absolute_url() on a User instance to retrieve its corresponding URL
 ABSOLUTE_URL_OVERRIDES = {
-    'auth.user': lambda u: reverse_lazy('account:user_detail',
-                                        args=[u.username])
+    'auth.user': lambda u: reverse_lazy('account:user-detail',
+                                        args=[u.pk])
 }
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,20 +45,26 @@ INSTALLED_APPS = [
     # "django.contrib.sites",
     # "django.contrib.sitemaps",
     "django.contrib.postgres",
-    'sorl.thumbnail',
+
     'hello.apps.HelloConfig',
     'taggit',  # app for tagging functionality,
     'blog',
     'collage',
-    'bootstrap3',
+    # 'bootstrap4',
+    'crispy_forms',
     'pizzashopapp',
     # 'djcelery',
     'celery_pb',
     'social_django',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
-
+    'sorl.thumbnail',
+    'actions',
+    'shop',
+    'cart',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -87,6 +89,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'cart.context_processor.cart',
             ]
         },
     }
@@ -105,8 +108,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'blog',
-        'USER': 'nenu',
-        'PASSWORD': 'Nenu32590632',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
     }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
@@ -144,7 +147,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = 'account:login'
+LOGIN_URL = 'account:login-django'
 LOGOUT_URL = 'account:logout-django'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
@@ -235,13 +238,12 @@ LOGGING = {
 # gogle client id: 931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com
 # google secret client: Y_nU0dbLjQ2eVSpgyEvYtJi5
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com'  # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y_nU0dbLjQ2eVSpgyEvYtJi5'  # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y_nU0dbLjQ2eVSpgyEvYtJi5' # Google Consumer Secret
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
-
 }
 
-THUMBNAIL_DEBUG = True
+CART_SESSION_ID = 'cart'

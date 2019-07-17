@@ -21,12 +21,18 @@ class Image(models.Model):
                                         related_name='images_liked',
                                         blank=True)
 
+    total_likes = models.PositiveIntegerField(db_index=True,
+                                              default=0)
+
+    class Meta:
+        ordering = ('-created',)
+
     def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title) # slug generation for title
+            self.slug = slugify(self.title)  # slug generation for title
         super(Image, self).save(*args, **kwargs)
 
     def get_absolute_url(self):

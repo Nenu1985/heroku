@@ -4,10 +4,11 @@
 
 {% block sidebar %}
 
-{% url 'collage:main' as collage_main %}
-{% url 'collage:collage-form' as collage_form %}
+    {% url 'collage:main' as collage_main %}
+    {% url 'collage:collage-form' as collage_form %}
     {% url 'images:create' as images_create %}
-{% url 'index' as home %}
+    {% url 'images:ranking' as images_ranking %}
+    {% url 'index' as home %}
 
     <div class="list-group">
         <span class="text-uppercase text-center">Коллаж</span>
@@ -18,8 +19,11 @@
         <a href="{% url 'collage:collage-form' %}"
            class="list-group-item {% if request.path == collage_form %} active {% endif %}">Форма</a>
 
-    <a href="{% url 'account:dashboard' %}"
+        <a href="{% url 'account:dashboard' %}"
            class="list-group-item {% if request.path == images_create %} active {% endif %}">Букмарклет</a>
+
+        <a href="{% url 'images:ranking' %}"
+           class="list-group-item {% if request.path == images_ranking %} active {% endif %}">Рейтинг</a>
 
         <a href="{% url 'index' %}"
            class="list-group-item ">Домой</a>
@@ -36,7 +40,7 @@
                 Информация
             </h4>
         </div>
-        <div class="panel-body text-white">
+        <div class="panel-body">
             {% for key, value in system_info.items %}
                 {{ key }} = {{ value }}<br>
                 {% for key2, value2 in value.items %}

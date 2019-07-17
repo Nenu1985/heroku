@@ -1,13 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+from attr.filters import exclude
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from .forms import EmailPostFrom, CommentForm
 from django.core.mail import send_mail
 from taggit.models import Tag
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector
 from .forms import EmailPostFrom, CommentForm, SearchForm
+from django.utils.text import slugify
 
 
 # Create your views here.
@@ -150,3 +152,21 @@ def post_search(request):
                   {'form': form,
                    'query': query,
                    'results': results})
+
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['tags', 'title', 'body']
+    template_name = 'blog/post/create.html'
+
+    def form_valid(self, form):
+        author = self.request.user
+        slug = slugify(form.cleaned_data['title'])
+
+        post = form.save(commit=False)
+        post.author = author
+        post.slug = slug
+        post.status = 'published'
+        post.save()
+        return redirect(post.get_absolute_url())
+        # form.save()

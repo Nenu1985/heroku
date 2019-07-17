@@ -9,6 +9,7 @@ from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth import views as auth_views
+
 # from django.contrib.sitemaps.views import sitemap
 # from blog.sitemap import PostSitemap
 #
@@ -25,7 +26,6 @@ from django.contrib.auth import views as auth_views
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path("", hello.views.index, name="index"),
     path('hello/', include('hello.urls', namespace='hello')),
     path("admin/", admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
@@ -35,11 +35,8 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('account/', include('account.urls', namespace='account')),
     path('images/', include('images.urls', namespace='images')),
-    # path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-    #      name='django.contrib.sitemaps.views.sitemap')
-
-    # path('progressbarupload/', include('progressbarupload.urls')),
-# reset password urls
+    path('shop/', include('shop.urls', namespace='shop')),
+    path('cart/', include('cart.urls', namespace='cart')),
     path('account/password_reset/',
          auth_views.PasswordResetView.as_view(template_name='account/registration/password_reset_form.html'),
          name='password_reset'),
@@ -50,9 +47,10 @@ urlpatterns = [
          auth_views.PasswordResetConfirmView.as_view(template_name='account/registration/password_reset_confirm.html'),
          name='password_reset_confirm'),
     path('account/reset/done/',
-         auth_views.PasswordResetCompleteView.as_view(template_name='account/registration/password_reset_complete.html'),
+         auth_views.PasswordResetCompleteView.as_view(
+             template_name='account/registration/password_reset_complete.html'),
          name='password_reset_complete'),
-
+    path("", hello.views.index, name="index"),
 ]
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()

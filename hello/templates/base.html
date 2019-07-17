@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {#    <link href="{% static 'blog.css' %}" rel="stylesheet">#}
     <link href="{% static 'css/base_account.css' %}" rel="stylesheet">
+    <link href="{% static 'css/shop.css' %}" rel="stylesheet">
     {#    <script src="{% static 'js/jquery-slim.min.js' %}"></script>#}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js">
     </script>
 
 
@@ -53,14 +54,16 @@
             <li class="nav-item active">
                 <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item">
-                <a href="{% url 'pizzapp:home' %}" class="nav-link"> Pizzashop</a>
-            </li>
+            {#            <li class="nav-item">#}
+            {#                <a href="{% url 'pizzapp:home' %}" class="nav-link"> Pizzashop</a>#}
+            {#            </li>#}
             <li class="dropdown nav-item">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                   aria-expanded="false"> Small projects
+                   aria-expanded="false"> Projects
                 </a>
                 <ul class="dropdown-menu" role="menu">
+                    <li class="nav-item"><a href="{% url 'shop:product-list' %}" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="{% url 'pizzapp:home' %}" class="nav-link">Pizzashop</a></li>
                     <li class="nav-item"><a href="{% url 'collage:main' %}" class="nav-link">Collage</a></li>
                     <li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="{% url 'account:login' %}" class="nav-link">Login</a></li>
@@ -69,7 +72,7 @@
                 </ul>
             </li>
         </ul>
-        <ul class="nav-item nav navbar-nav navbar-right">
+        <ul class="nav-item nav navbar-nav navbar-right" style="float: right">
             {#                    <li class="navbar-right">#}
             {#                        <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev#}
             {#                            Center</a>#}
@@ -78,19 +81,15 @@
             {#                        <span>Bookmarks</span>#}
             {% if request.user.is_authenticated %}
                 {#                            <ul class="navbar">#}
-                <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>
-                    <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>
-                </li>
-                <li class="nav-item {% if section == "images" %}selected{% endif %}">
-                    <a href="{% url 'images:list' %}" class="nav-link">Images</a>
-                </li>
-                <li {% if section == "people" %}
-                    class="nav-item selected"
-                    {% else %}
-                    class="nav-item"
-                {% endif %}>
-                    <a href="{% url 'account:user_list' %}" class="nav-link">People</a>
-                </li>
+                {#                <li {% if section == "account:dashboard" %}class="selected nav-item"{% endif %}>#}
+                {#                    <a href="{% url "account:dashboard" %}" class="nav-link">My dashboard</a>#}
+                {#                </li>#}
+                {#                <li {% if section == "images" %} class="nav-item selected"{% endif %}>#}
+                {#                    <a href="{% url 'images:list' %}" class="nav-link">Images</a>#}
+                {#                </li>#}
+                {#                <li {% if section == "people" %} class="nav-item selected"{% endif %}>#}
+                {#                    <a href="{% url 'account:user-list' %}" class="nav-link">People</a>#}
+                {#                </li>#}
 
             {% endif %}
 

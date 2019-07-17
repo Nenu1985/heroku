@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = 'account'
 
 urlpatterns = [
@@ -20,9 +23,11 @@ urlpatterns = [
          name='password_change_done'),
     path('register/', views.register, name='register'),
     path('edit/', views.edit, name='edit'),
-    path('users/<username>/', login_required(views.UserDetailView.as_view()), name='user_detail'),
-    path('users/', login_required(views.UserListView.as_view()), name='user_list'),
-    # path('users_c/<username>/', , name='user_detail_c'),
-
+    path('users/', login_required(views.UserListView.as_view()), name='user-list'),
+    path('users/follow/', views.UserFollowView.as_view(), name='user-follow'),
+    path('users/<int:pk>/', login_required(views.UserDetailView.as_view()), name='user-detail'),
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

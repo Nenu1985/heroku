@@ -1,0 +1,349 @@
+[
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$kNNCaJ2qVZ0Q$TvVBAdXVbmQ+XDxSNl6E74aP34El4qKQCKCp1OspD4Q=",
+        "last_login": "2019-07-08T16:01:23.945Z",
+        "is_superuser": true,
+        "username": "andrey",
+        "first_name": "andrey",
+        "last_name": "Petrov",
+        "email": "asdf@sdf.sdf",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-07-08T09:51:04.231Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$wUfSFMFwi52Q$ENSNcmIirE7dmuPmr4G1Jw0HTnz6PNSVn2gLWmg3av8=",
+        "last_login": "2019-07-08T10:12:00.928Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "andrey",
+        "last_name": "nenu",
+        "email": "nenu@tut.bt",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-07-08T09:51:21.960Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$MGK3uphriLmz$n4FB4UDQFGSm21w02vIbnxKqMIcZiFPTT/SLIR2utuo=",
+        "last_login": "2019-07-08T13:07:34.225Z",
+        "is_superuser": true,
+        "username": "vasyz",
+        "first_name": "Vasyz",
+        "last_name": "Ivanov",
+        "email": "nenu@sdaf.we",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-07-08T09:51:42.697Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$NQ7zMa5a9Pbf$8Im1GrrBNKHmpr8EVZWyAYDA3kNM0tqLKgmbGlkhppQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Jora",
+        "first_name": "Grisha",
+        "last_name": "",
+        "email": "nenu@wr.vs",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-07-08T15:20:53.962Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$dWbXKgXtYMDt$30uliQnRsONwN1ezHks0DJMP3v+i63FDilaKqOM8BBo=",
+        "last_login": "2019-07-11T10:49:53.390Z",
+        "is_superuser": false,
+        "username": "Vanya",
+        "first_name": "Ivan",
+        "last_name": "Ivanov",
+        "email": "serg@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-07-11T07:08:43.481Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "pizzashopapp.pizzashop",
+    "pk": 1,
+    "fields": {
+        "owner": 8,
+        "name": "PizzaBy",
+        "phone": "375295564664",
+        "address": "Gomel",
+        "logo": "pizzashop_logo/PizzaShopDay_sJZJOXo.jpg"
+    }
+},
+{
+    "model": "pizzashopapp.pizza",
+    "pk": 1,
+    "fields": {
+        "pizzashop": 1,
+        "name": "\u0414\u0435\u0440\u0435\u0432\u0435\u043d\u0441\u043a\u0430\u044f",
+        "short_description": "\u0432\u043a\u0443\u0441\u043d\u0430\u044f \u043f\u0440\u0435\u0432\u043a\u0443\u0441\u043d\u0430\u044f",
+        "image": "pizza_images/Derevenskaya_aAUMd3v.png",
+        "price": 100
+    }
+},
+{
+    "model": "pizzashopapp.pizza",
+    "pk": 2,
+    "fields": {
+        "pizzashop": 1,
+        "name": "\u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u043a\u0430",
+        "short_description": "\u0441 \u043a\u043e\u043b\u0431\u0430\u0441\u043e\u0439 \u0438 \u0442\u0435\u0441\u0442\u043e\u043c",
+        "image": "pizza_images/Margarita.png",
+        "price": 105
+    }
+},
+{
+    "model": "pizzashopapp.pizza",
+    "pk": 3,
+    "fields": {
+        "pizzashop": 1,
+        "name": "\u0413\u0430\u0432\u0430\u0439\u0441\u043a\u0430\u044f",
+        "short_description": "\u0441 \u0442\u0440\u043e\u043f\u0438\u0447\u0435\u0441\u043a\u0438\u043c\u0438 \u0444\u0440\u0443\u043a\u0442\u0430\u043c\u0438",
+        "image": "pizza_images/Gavaiskaya.png",
+        "price": 110
+    }
+},
+{
+    "model": "images.image",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "title": "\u0411\u0435\u043b\u043e\u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u043f\u043e\u0440\u0442\u0430\u043b TUT.BY. \u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u0438 \u0438 \u043c\u0438\u0440\u0430",
+        "slug": "tutby",
+        "url": "https://img.tyt.by/552x368c/n/buryakina/00/1/ceremoniya_zakrytiya_evropeyskikh_igr_20190410_bur_tutby_phsl-9707.jpg",
+        "image": "images/2019/07/08/tutby.jpg",
+        "description": "From tut",
+        "created": "2019-07-08",
+        "total_likes": 1,
+        "users_like": [
+            5
+        ]
+    }
+},
+{
+    "model": "images.image",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "title": "\u0411\u0435\u043b\u043e\u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u043f\u043e\u0440\u0442\u0430\u043b TUT.BY. \u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u0438 \u0438 \u043c\u0438\u0440\u0430",
+        "slug": "tutby",
+        "url": "https://img.tyt.by/279x186c/p/00/2/tit._kartinkazomeks_08072019.jpg",
+        "image": "images/2019/07/08/tutby_lIETQJj.jpg",
+        "description": "skyscraper",
+        "created": "2019-07-08",
+        "total_likes": 0,
+        "users_like": []
+    }
+},
+{
+    "model": "images.image",
+    "pk": 3,
+    "fields": {
+        "user": 3,
+        "title": "\u0411\u0435\u043b\u043e\u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u043f\u043e\u0440\u0442\u0430\u043b TUT.BY. \u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u0438 \u0438 \u043c\u0438\u0440\u0430",
+        "slug": "tutby",
+        "url": "https://img.afisha.tut.by/static/media/194x158c/screens/06/8/chelovek-pauk-vdali-ot-doma-481134.jpg",
+        "image": "images/2019/07/08/tutby_nmoK3d1.jpg",
+        "description": "spiderman",
+        "created": "2019-07-08",
+        "total_likes": 2,
+        "users_like": [
+            3,
+            6
+        ]
+    }
+},
+{
+    "model": "images.image",
+    "pk": 4,
+    "fields": {
+        "user": 4,
+        "title": "Sweet pair",
+        "slug": "sweet-pair",
+        "url": "https://img.afisha.tut.by/static/media/194x158c/screens/0f/b/sobachya-zhizn-2-145305.jpg",
+        "image": "images/2019/07/08/sweet-pair.jpg",
+        "description": "nice",
+        "created": "2019-07-08",
+        "total_likes": 0,
+        "users_like": []
+    }
+},
+{
+    "model": "images.image",
+    "pk": 5,
+    "fields": {
+        "user": 4,
+        "title": "\u0412\u0441\u0435\u0433\u0434\u0430 \u043f\u0440\u0438\u0445\u043e\u0434\u0438\u0442 \u0432 \u043f\u043b\u0430\u0442\u044c\u0435 \u0431\u0435\u043b\u043e\u043c",
+        "slug": "v_pl_b",
+        "url": "https://img.tyt.by/390x260c/n/sport/01/1/uimbldon_svitolina_rts2krbm.jpg",
+        "image": "images/2019/07/08/.jpg",
+        "description": "",
+        "created": "2019-07-08",
+        "total_likes": 2,
+        "users_like": [
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "images.image",
+    "pk": 7,
+    "fields": {
+        "user": 5,
+        "title": "\u0411\u0435\u043b\u043e\u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u043f\u043e\u0440\u0442\u0430\u043b TUT.BY. \u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u0438 \u0438 \u043c\u0438\u0440\u0430",
+        "slug": "tutby",
+        "url": "https://img.tyt.by/621x414c/n/avto/09/9/lexani_sky_master_1.jpg",
+        "image": "images/2019/07/08/tutby_CTKLM83.jpg",
+        "description": "Big Black Bus",
+        "created": "2019-07-08",
+        "total_likes": 0,
+        "users_like": []
+    }
+},
+{
+    "model": "images.image",
+    "pk": 8,
+    "fields": {
+        "user": 5,
+        "title": "clock",
+        "slug": "clock",
+        "url": "https://img.tyt.by/432x288c/n/it/05/5/xiaomi-huami-amazfit-cor-2-65.jpg",
+        "image": "images/2019/07/08/clock.jpg",
+        "description": "fitness clock",
+        "created": "2019-07-08",
+        "total_likes": 1,
+        "users_like": [
+            5
+        ]
+    }
+},
+{
+    "model": "images.image",
+    "pk": 9,
+    "fields": {
+        "user": 5,
+        "title": "bmw",
+        "slug": "bmw",
+        "url": "https://img.tyt.by/360x240c/p/09/f/ml_08072019_6_.jpg",
+        "image": "images/2019/07/08/bmw.jpg",
+        "description": "a car",
+        "created": "2019-07-08",
+        "total_likes": 1,
+        "users_like": [
+            4
+        ]
+    }
+},
+{
+    "model": "account.contact",
+    "pk": 5,
+    "fields": {
+        "user_from": 3,
+        "user_to": 4,
+        "created": "2019-07-08T13:06:21.594Z"
+    }
+},
+{
+    "model": "account.contact",
+    "pk": 6,
+    "fields": {
+        "user_from": 5,
+        "user_to": 4,
+        "created": "2019-07-08T15:59:17.093Z"
+    }
+},
+{
+    "model": "account.contact",
+    "pk": 7,
+    "fields": {
+        "user_from": 5,
+        "user_to": 3,
+        "created": "2019-07-08T16:00:01.562Z"
+    }
+},
+{
+    "model": "account.contact",
+    "pk": 8,
+    "fields": {
+        "user_from": 3,
+        "user_to": 5,
+        "created": "2019-07-08T16:03:21.460Z"
+    }
+},
+{
+    "model": "account.profile",
+    "pk": 2,
+    "fields": {
+        "user": 4,
+        "date_of_birth": null,
+        "photo": "users/2019/07/08/15_aCzx7VT.jpg"
+    }
+},
+{
+    "model": "account.profile",
+    "pk": 3,
+    "fields": {
+        "user": 3,
+        "date_of_birth": null,
+        "photo": "users/2019/07/08/pytho1.jpg"
+    }
+},
+{
+    "model": "account.profile",
+    "pk": 4,
+    "fields": {
+        "user": 5,
+        "date_of_birth": null,
+        "photo": "users/2019/07/08/16.jpg"
+    }
+},
+{
+    "model": "account.profile",
+    "pk": 5,
+    "fields": {
+        "user": 6,
+        "date_of_birth": null,
+        "photo": ""
+    }
+},
+{
+    "model": "account.profile",
+    "pk": 7,
+    "fields": {
+        "user": 8,
+        "date_of_birth": null,
+        "photo": ""
+    }
+}
+]

@@ -1,5 +1,5 @@
 {% extends 'base_signup.html' %}
-{% load bootstrap3 %}
+{% load crispy_forms_tags %}
 
 {% block title %}Войти{% endblock %}
 
@@ -8,7 +8,7 @@
 {% block content %}
 <form method="POST">
   {% csrf_token %}
-  {% bootstrap_form form %}
+  {{ form|crispy }}
   <button type="submit" class="btn btn-red pull-right">Войти</button>
 </form>
 <a href="{% url 'pizzapp:pizzashop-sign-up' %}">Зарегистрировать Пиццерию</a>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+
+    {% url 'account:dashboard' as dashboard %}
+    {% url 'account:user-list' as user_list %}
+    {% url 'images:list' as images_list %}
+    {% url 'images:create' as image_create %}
+
+    <div class="list-group">
+        <span class="text-uppercase text-center">Соц сеть</span>
+
+        <a href="{% url 'account:dashboard' %}"
+           class="list-group-item {% if request.path == dashboard %} active {% endif %}">Букмарклет</a>
+
+        <a href="{% url 'images:list' %}"
+           class="list-group-item {% if request.path == images_list %} active {% endif %}">Изображения</a>
+
+        <a href="{% url 'account:user-list' %}"
+           class="list-group-item {% if request.path == user_list %} active {% endif %}">Люди</a>
+
+        <a href="{% url 'images:create' %}"
+           class="list-group-item {% if request.path == image_create %} active {% endif %}">Создать изображение</a>
+
+        <a href="{% url 'index' %}"
+           class="list-group-item ">Домой</a>
+
+    </div>
+
+
+{% endblock %}

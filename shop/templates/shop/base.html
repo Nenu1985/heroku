@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    My shop
+{% endblock %}
+
+{% block sidebar %}
+    <div id="sidebar">
+        <h3>Categories</h3>
+        <ul>
+            <li {% if not category %}class="selected"{% endif %}>
+                <a href="{% url "shop:product-list" %}">All</a>
+            </li>
+            {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block page %}
+    <div id="shop">
+        <div id="header">
+            <a href="/" class="logo">My shop</a>
+        </div>
+        <div id="subheader">
+            <div class="cart">
+{# cart variable is from cart.context_processor.py, see settings.py #}
+                {% with total_items=cart|length %}
+                    {% if cart|length > 0 %}
+                        Your cart:
+                        <a href="{% url "cart:cart-detail" %}">
+                            {{ total_items }} item{{ total_items|pluralize }},
+                            ${{ cart.get_total_price }}
+                        </a>
+                    {% else %}
+                        Your cart is empty.
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
