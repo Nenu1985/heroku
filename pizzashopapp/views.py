@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from pizzashopapp.forms import UserForm, PizzaShopForm, UserFormForEdit, PizzaForm
 from django.contrib.auth.models import User
@@ -108,7 +108,7 @@ def pizzashop_sign_up(request):
 
 def auto_login(request):
     # Auto-login with test user Vanya:
-    vanya = User.objects.get(username='Vanya')
+    vanya = get_object_or_404(User, username='Vanya')
     if vanya:
         request.user = authenticate(username='Vanya', password='1234')
         login(request, request.user)

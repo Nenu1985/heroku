@@ -24,7 +24,7 @@
 {% block page %}
     <div id="shop">
         <div id="header">
-            <a href="/" class="logo">My shop</a>
+            <a href="{% url "shop:product-list" %}" class="logo">My shop</a>
         </div>
         <div id="subheader">
             <div class="cart">

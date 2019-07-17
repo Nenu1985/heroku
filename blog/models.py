@@ -10,6 +10,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 # define our custom manager
 #     objects = models.Manager() # The default manager.
 #     published = PublishedManager() # Our custom manager.
@@ -19,15 +20,14 @@ User = get_user_model()
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager,
-                     self).get_queryset()\
-                          .filter(status='published')
+                     self).get_queryset() \
+            .filter(status='published')
 
 
 class Post(models.Model):
-
     # define standard and custom managers
-    objects = models.Manager() # The default manager.
-    published = PublishedManager() # Our custom manager.
+    objects = models.Manager()  # The default manager.
+    published = PublishedManager()  # Our custom manager.
 
     # The tags manager will allow you to add, retrieve, and remove tags
     # from Post objects
@@ -61,6 +61,7 @@ class Post(models.Model):
                              self.publish.month,
                              self.publish.day,
                              self.slug])
+
     class Meta:
         ordering = ('-publish',)
 

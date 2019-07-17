@@ -98,6 +98,7 @@ python manage.py loaddata db.json
 ```
 
 ## Product shop functionality
+chap 1.
 • Creating the product catalog models, adding them to the administration site,
 and building the basic views to display the catalog
 • Building a shopping cart system using Django sessions to allow users
@@ -105,3 +106,28 @@ to keep selected products while they browse the site
 • Creating the form and functionality to place orders
 • Sending an asynchronous email confirmation to users when they place
 an order
+
+chap 2.
+• Integrate a payment gateway into your project
+• Manage payment notifications
+• Export orders to CSV files
+• Create custom views for the administration site
+• Generate PDF invoices dynamically
+
+## Celery
+launch:
+```
+celery -A gettingstarted worker -l info
+```
+Web-based celery monitor flower:
+```
+celery -A gettingstarted flower
+```
+Now you can watch celery tasks at 
+http://localhost:5555/dashboard
+
+## Paypal
+Test buyer account email:
+``nenuzhny85-buyer@gmail.com``
+Test buyer account password
+``13245678``
