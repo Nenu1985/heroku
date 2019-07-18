@@ -73,6 +73,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'django.middleware.locale.LocaleMiddleware',  # has to be placed after session middleware and before Common
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -141,7 +142,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = "ru"
+LANGUAGE_CODE = "en"
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('ru', 'Русский'),
+)
 
 TIME_ZONE = "Europe/Minsk"
 
@@ -240,8 +246,8 @@ LOGGING = {
 # gogle client id: 931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com
 # google secret client: Y_nU0dbLjQ2eVSpgyEvYtJi5
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y_nU0dbLjQ2eVSpgyEvYtJi5' # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '931877487170-8lkvbsill09r7iat7qqu05tqa80p477m.apps.googleusercontent.com'  # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y_nU0dbLjQ2eVSpgyEvYtJi5'  # Google Consumer Secret
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
