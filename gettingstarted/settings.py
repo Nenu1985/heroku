@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import django_heroku
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -145,8 +146,12 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en"
 
 LANGUAGES = (
-    ('en', 'English'),
-    ('ru', 'Русский'),
+    ('en', _('English')),
+    ('ru', _('Russian')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
 )
 
 TIME_ZONE = "Europe/Minsk"

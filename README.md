@@ -138,3 +138,10 @@ Test buyer account email:
 ``nenuzhny85-buyer@gmail.com``
 Test buyer account password
 ``13245678``
+
+## Localisation
+1. Add languages to settings.py and
+create folders "en" and "ru" in the "locale" folder;
+2. run: ``django-admin makemessages --all --ignore venv``
+3. edit msgstr variable in the files django.po for each locale
+4. run ``django-admin compilemessages``
