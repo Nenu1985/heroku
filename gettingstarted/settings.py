@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'payment',
     'coupons',
     'rosetta',
+    'courses',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

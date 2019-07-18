@@ -121,6 +121,16 @@ chap 3.
 • Translating models using django-parler
 • Building a product recommendation engine
 
+## E-Learning platform
+Chap 1.
+• Create fixtures for models
+• Use model inheritance
+• Create custom model fields
+• Use class-based views and mixins
+• Build formsets
+• Manage groups and permissions
+• Create a CMS
+
 ## Celery
 launch:
 ```
