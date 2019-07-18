@@ -24,6 +24,7 @@
                     <td>
                         <a href="{{ product.get_absolute_url }}">
                             <img src="
+
                                     {% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                         </a>
                     </td>
@@ -49,12 +50,9 @@
                 <td class="num">${{ cart.get_total_price|floatformat:"2" }}</td>
             </tr>
             <tr>
-                <td>
-                    {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
-                        <td>"{{ code }}" coupon ({{ discount }}% off)</td>
-                    {% endblocktrans %}
-
-                </td>
+                {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+                    <td>"{{ code }}" coupon ({{ discount }}% off)</td>
+                {% endblocktrans %}
                 <td colspan="4"></td>
                 <td class="num neg">
                     - ${{ cart.get_discount|floatformat:"2" }}

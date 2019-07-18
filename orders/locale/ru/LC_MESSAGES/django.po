@@ -47,11 +47,11 @@ msgstr "город"
 #: .\orders\templates\orders\order\create.html:3
 #: .\orders\templates\orders\order\create.html:7
 msgid "Checkout"
-msgstr ""
+msgstr "Форма заказа"
 
 #: .\orders\templates\orders\order\create.html:9
 msgid "Your order"
-msgstr ""
+msgstr "Ваш заказ"
 
 #: .\orders\templates\orders\order\create.html:19
 #, python-format
@@ -63,16 +63,16 @@ msgstr ""
 
 #: .\orders\templates\orders\order\create.html:26
 msgid "Total"
-msgstr ""
+msgstr "Итог"
 
 #: .\orders\templates\orders\order\create.html:30
 msgid "Place order"
-msgstr ""
+msgstr "Оплатить заказ"
 
 #: .\orders\templates\orders\order\created.html:4
 #: .\orders\templates\orders\order\created.html:7
 msgid "Thank you"
-msgstr ""
+msgstr "Спасибо"
 
 #: .\orders\templates\orders\order\created.html:8
 #, python-format
@@ -81,4 +81,5 @@ msgid ""
 "        <p>Your order has been successfully completed. Your order number is "
 "<strong>%(order_id)s</strong>.</p>\n"
 "    "
-msgstr ""
+msgstr "\n"
+"Ваш заказ оплачен. Номер заказа <strong>%(order_id)s</strong>.</p>\n"
