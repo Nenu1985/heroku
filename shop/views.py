@@ -3,6 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from django.views.generic import ListView, DetailView
 from cart.forms import CartAddProductForm
+from .recommender import Recommender
+
 
 # Create your views here.
 class ProductListView(ListView):
@@ -55,8 +57,12 @@ def product_detail(request, id, slug):
 
     cart_product_form = CartAddProductForm()
 
+    r = Recommender()
+    recommended_products = r.suggest_products_for([product], 4)
+
     return render(request,
                   'shop/product/detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form,
+                   'recommended_products': recommended_products,
                    })
