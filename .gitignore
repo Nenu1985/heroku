@@ -9,7 +9,7 @@ getting-started/*
 .idea
 .idea/
 .idea/workspace.xml
-
+media/
 image/*
 results.sqlite
 *.xml
