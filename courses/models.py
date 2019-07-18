@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 
 # Create your models here.
@@ -46,3 +48,63 @@ class Module(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Content(models.Model):
+    module = models.ForeignKey(Module,
+                               related_name='contents',
+                               on_delete=models.CASCADE)
+
+    _limit = models.Q(app_label='courses', model='text') | \
+             models.Q(app_label='courses', model='pdf')
+
+    # model__in field lookup to filter the query to the ContentType objects
+    # with a model attribute that is 'text', 'video'...
+    content_type = models.ForeignKey(ContentType,
+                                     on_delete=models.CASCADE,
+                                     limit_choices_to={'model__in': (
+                                         'text',
+                                         'video',
+                                         'image',
+                                         'file',
+                                     )})
+    object_id = models.PositiveIntegerField()
+    item = GenericForeignKey('content_type', 'object_id')
+
+
+class ItemBase(models.Model):
+    # to store which user created the content
+    # Since this field is defined in an abstract class,
+    # we need different related_name for each sub-model. Django allows us
+    # to specify a placeholder for the model class name in the related_name
+    # attribute as %(class)s.
+    # The reverse relation for child models will
+    # be text_related, file_related, image_related, and video_related
+    owner = models.ForeignKey(User,
+                              related_name='%(class)s_related',
+                              on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.title
+
+
+class Text(ItemBase):
+    content = models.TextField()
+
+
+class File(ItemBase):
+    file = models.FileField(upload_to='files')
+
+
+class Image(ItemBase):
+    file = models.FileField(upload_to='images')
+
+
+class Video(ItemBase):
+    url = models.URLField()
