@@ -121,7 +121,11 @@ msgid ""
 "                                $%(total_price)s\n"
 "                            "
 msgstr ""
-
+""
+"\n"
+"                                %(total_items)s товар %(total_items_plural)s,\n"
+"                                $%(total_price)s\n"
+"                            "
 #: .\shop\templates\shop\base.html:45
 msgid "Your cart is empty."
 msgstr "Ваша корзина пуста"

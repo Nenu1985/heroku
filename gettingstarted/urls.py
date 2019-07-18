@@ -9,23 +9,10 @@ from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth import views as auth_views
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 
-# from django.contrib.sitemaps.views import sitemap
-# from blog.sitemap import PostSitemap
-#
-# sitemaps = {
-#     'posts': PostSitemap,
-# }
-
-# To add a new path, first import the app:
-# import blog
-#
-# Then add the new path:
-# path('blog/', blog.urls, name="blog")
-#
-# Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
-
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('hello/', include('hello.urls', namespace='hello')),
     path("admin/", admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
@@ -56,7 +43,7 @@ urlpatterns = [
              template_name='account/registration/password_reset_complete.html'),
          name='password_reset_complete'),
     path("", hello.views.index, name="index"),
-]
+)
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
