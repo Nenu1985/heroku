@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block page %}
+{% load static %}
+    <link href="{% static 'css/courses_base.css' %}" rel="stylesheet">
+
+    <div id="header">
+        <a href="/" class="logo">Educa</a>
+        <ul class="menu">
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url "account:logout-django" %}">Sign out</a></li>
+            {% else %}
+                <li><a href="{% url "account:login-django" %}">Sign in</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            {% block domready %}
+            {% endblock %}
+        });
+    </script>
+{% endblock %}
