@@ -78,10 +78,10 @@ heroku logs --source app --dyno worker -n 200
 heroku logs -t --source app
 
 ## Chage redirect address from 127.0.0.1 to nenuz.com:
-system32/drivers/etc/hosts
-127.0.0.1 nenuz.com
-in cmd run "ipconfig /flushdns" - clear dns cache
-turn of vpn in browser
+in the file system32/drivers/etc/hosts type:
+``127.0.0.1 nenuz.com``
+in cmd run "ipconfig /flushdns" - it will clear dns cache
+Then turn off vpn in browser (opera)!
 Profit!
 
 ## Antonio Mele Django by example book source:
@@ -155,7 +155,7 @@ Test buyer account email:
 Test buyer account password
 ``13245678``
 
-## Localisation
+## Localization
 1. Add languages to settings.py and
 create folders "en" and "ru" in the "locale" folder;
 2. run: ``django-admin makemessages --all --ignore venv``
