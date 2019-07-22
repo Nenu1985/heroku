@@ -23,7 +23,7 @@ def export_to_csv(modeladmin, request, queryset):
         filename={}.csv'.format(opts.verbose_name)
     writer = csv.writer(response)
 
-    # get the model felds dynamically using the get_fields() method of
+    # get the model fields dynamically using the get_fields() method of
     # the model _meta options. We exclude many-to-many and one-to-many
     # relationships
     fields = [field for field in opts.get_fields() if not field.many_to_many and not field.one_to_many]
