@@ -5,10 +5,13 @@
     <div class="list-group">
         <span class="text-uppercase text-center">Applications</span>
 
-    <a href="{% url 'shop:product-list' %}"
+        <a href="{% url 'courses:manage-course-list' %}"
+           class="list-group-item">Обучающая система</a>
+
+        <a href="{% url 'shop:product-list' %}"
            class="list-group-item ">Магазин</a>
 
-    <a href="{% url 'account:dashboard' %}"
+        <a href="{% url 'account:dashboard' %}"
            class="list-group-item ">Соц сеть</a>
 
         <a href="{% url 'pizzapp:pizzashop-pizza' %}"
