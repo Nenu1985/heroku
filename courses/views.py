@@ -10,6 +10,7 @@ from .forms import ModuleFormSet
 from django.forms.models import modelform_factory
 from django.apps import apps
 from .models import Module, Content
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 
 
 # Create your views here.
@@ -301,3 +302,31 @@ class ModuleContentListView(TemplateResponseMixin, View):
                                    id=module_id,
                                    course__owner=request.user)
         return self.render_to_response({'module': module})
+
+
+# CsrfExemptMixin: To avoid checking the CSRF token in the POST
+# requests. We need this to perform AJAX POST requests
+# without having to generate a csrf_token.
+# JsonRequestResponseMixin: Parses the request data as JSON and
+# also serializes the response as JSON and returns an HTTP
+# response with the application/json content type.
+class ModuleOrderView(CsrfExemptMixin,
+                      JsonRequestResponseMixin,
+                      View):
+    """orderss a course's modules"""
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Module.objects.filter(id=id, course__owner=request.user).update(order=order)
+        return self.render_json_response({'saved': 'OK'})
+
+
+class ContentOrderView(CsrfExemptMixin,
+                       JsonRequestResponseMixin,
+                       View):
+    """orders a module's contents"""
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Content.objects.filter(id=id,
+                                   module__course__owner=request.user) \
+                .update(order=order)
+        return self.render_json_response({'saved': 'OK'})

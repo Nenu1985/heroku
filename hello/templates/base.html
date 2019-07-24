@@ -13,6 +13,7 @@
     <link href="{% static 'css/shop.css' %}" rel="stylesheet">
     {#    <script src="{% static 'js/jquery-slim.min.js' %}"></script>#}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js">
     </script>
@@ -62,7 +63,8 @@
                    aria-expanded="false"> Projects
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li class="nav-item"><a href="{% url 'courses:manage-course-list' %}" class="nav-link">e-learning</a></li>
+                    <li class="nav-item"><a href="{% url 'courses:manage-course-list' %}"
+                                            class="nav-link">e-learning</a></li>
                     <li class="nav-item"><a href="{% url 'shop:product-list' %}" class="nav-link">Shop</a></li>
                     <li class="nav-item"><a href="{% url 'pizzapp:home' %}" class="nav-link">Pizzashop</a></li>
                     <li class="nav-item"><a href="{% url 'collage:main' %}" class="nav-link">Collage</a></li>

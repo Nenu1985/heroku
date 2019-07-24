@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block page %}
-{% load static %}
+    {% load static %}
     <link href="{% static 'css/courses_base.css' %}" rel="stylesheet">
 
     <div id="header">
@@ -18,10 +18,8 @@
         {% endblock %}
     </div>
 
-    <script>
-        $(document).ready(function () {
-            {% block domready %}
-            {% endblock %}
-        });
-    </script>
+
+
+{% endblock %}
+{% block domready %}
 {% endblock %}
