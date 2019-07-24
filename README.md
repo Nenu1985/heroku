@@ -136,6 +136,13 @@ Chap 1.
     - Add modules to a course and reorder them
     - Add different types of content to each module and reorder
     contents
+    
+Chap 2.
+• Create public views for displaying course information
+• Build a student registration system
+• Manage student enrollment in courses
+• Render diverse course contents
+• Cache content using the cache framework
 
 ## Celery
 launch:
