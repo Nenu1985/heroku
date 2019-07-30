@@ -23,3 +23,4 @@ flower==0.9.3
 django-paypal==1.0.0
 WeasyPrint==48
 django-rosetta==0.9.3
+django-braces==1.13.0
