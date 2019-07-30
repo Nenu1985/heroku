@@ -13,6 +13,7 @@ from .models import Module, Content
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.db.models import Count
 from .models import Subject
+from django.views.generic.detail import DetailView
 
 
 # Create your views here.
@@ -346,7 +347,7 @@ class CourseListView(TemplateResponseMixin, View):
         subjects = Subject.objects.annotate(
             total_courses=Count('courses'))
 
-        # retrieve all available courses, including the total number
+        # retrieve all available courses, includin:g the total number
         # of modules contained in each course
         courses = Course.objects.annotate(
             total_modules=Count('modules'))
@@ -356,3 +357,8 @@ class CourseListView(TemplateResponseMixin, View):
         return self.render_to_response({'subjects': subjects,
                                         'subject': subject,
                                         'courses': courses})
+
+
+class CourseDetailView(DetailView):
+    model = Course
+    temlate_name = 'courses/course/detail.html'
