@@ -30,6 +30,7 @@ urlpatterns = i18n_patterns(
     path('coupons/', include('coupons.urls', namespace='coupons')),
     path('rosetta/', include('rosetta.urls', )),
     path('courses/', include('courses.urls', namespace='courses')),
+    path('students/', include('students.urls', namespace='students')),
     path('account/password_reset/',
          auth_views.PasswordResetView.as_view(template_name='account/registration/password_reset_form.html'),
          name='password_reset'),

@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'coupons',
     'rosetta',
     'courses',
+    'sudents.apps.StudentsConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
