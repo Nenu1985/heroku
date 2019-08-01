@@ -15,6 +15,8 @@ from django.db.models import Count
 from .models import Subject
 from django.views.generic.detail import DetailView
 
+from students.forms import CourseEnrollForm
+
 
 # Create your views here.
 
@@ -128,7 +130,7 @@ class CourseModuleUpdateView(TemplateResponseMixin, View):
 an HTTP request and its parameters and attempts to
 delegate to a lowercase method that matches the HTTP
 method used: a GET request is delegated to the get() method
-and a POST request to post(), respectively. In this method, we
+# and a POST request to post(), respectively. In this method, we
 use the get_object_or_404() shortcut function to get the Course
 object for the given id parameter that belongs to the current
 user. We include this code in the dispatch() method because
@@ -362,3 +364,10 @@ class CourseListView(TemplateResponseMixin, View):
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/course/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView,
+                        self).get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(
+            initial={'course': self.object})  # current course object
+        return context
