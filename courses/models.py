@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from .fields import OrderField
+from django.template.loader import render_to_string
+from django.utils.safestring import mark_safe
 
 
 # Create your models here.
@@ -99,6 +101,14 @@ class ItemBase(models.Model):
     title = models.CharField(max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    def render(self):
+        # render_to_string - function for rendering a template and returning the
+        # rendered content as a string.
+        # self._meta.model_name to generate the appropriate
+        # template name for each content model dynamically.
+        return render_to_string(f'courses/content/{self._meta.model_name}.html',
+                                {'item': self})
 
     class Meta:
         abstract = True

@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'rosetta',
     'courses',
     'students.apps.StudentsConfig',
+    'embed_video',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
