@@ -14,7 +14,7 @@ from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.db.models import Count
 from .models import Subject
 from django.views.generic.detail import DetailView
-
+from django.core.cache import cache
 from students.forms import CourseEnrollForm
 
 
@@ -344,11 +344,13 @@ class CourseListView(TemplateResponseMixin, View):
     template_name = 'courses/course/list.html'
 
     def get(self, request, subject=None):
-        # retrieve all subjects, including the total number of
-        # courses for each of them
-        subjects = Subject.objects.annotate(
-            total_courses=Count('courses'))
-
+        # retrieve all subjects from cache, including the total
+        # number of courses for each of them
+        subjects = cache.get('all_subjects')
+        if not subjects:
+            subjects = Subject.objects.annotate(
+                total_courses=Count('courses'))
+            cache.set('all_subjects', subjects)
         # retrieve all available courses, includin:g the total number
         # of modules contained in each course
         courses = Course.objects.annotate(
