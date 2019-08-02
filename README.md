@@ -143,6 +143,12 @@ Chap 2.
 • Manage student enrollment in courses
 • Render diverse course contents
 • Cache content using the cache framework
+    - install memcached on Linux: ./configure && make && make test && sudo make install
+                        on Win: https://www.ubergizmo.com/how-to/install-memcached-windows/ 
+    - start memcached on Lin: memcached -l 127.0.0.1:11211
+                      on Win: memcached start
+                      (defaul port == 127.0.0.1:11211)
+                        
 
 ## Celery
 launch:

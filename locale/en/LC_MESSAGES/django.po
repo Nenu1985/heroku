@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-18 10:21+0300\n"
+"POT-Creation-Date: 2019-08-02 12:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:15 .\cart\templates\cart\detail.html:39
+#: .\cart\templates\cart\detail.html:15 .\cart\templates\cart\detail.html:41
 msgid "Remove"
 msgstr ""
 
@@ -46,39 +46,44 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:35
+#: .\cart\templates\cart\detail.html:37
 msgid "Update"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:47
+#: .\cart\templates\cart\detail.html:49
 msgid "Subtotal"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:53
+#: .\cart\templates\cart\detail.html:54
 #, python-format
 msgid ""
 "\n"
-"                        <td>\"%(code)s\" coupon (%(discount)s%% off)</td>\n"
-"                    "
+"                    <td>\"%(code)s\" coupon (%(discount)s%% off)</td>\n"
+"                "
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:65
+#: .\cart\templates\cart\detail.html:64
 msgid "Total"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:71
+#: .\cart\templates\cart\detail.html:73
+#: .\shop\templates\shop\product\detail.html:24
+msgid "People who bought this also bought"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:86
 msgid "Apply a coupon"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:74
+#: .\cart\templates\cart\detail.html:89
 msgid "Apply"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:79
+#: .\cart\templates\cart\detail.html:94
 msgid "Continue shopping"
 msgstr ""
 
-#: .\cart\templates\cart\detail.html:80
+#: .\cart\templates\cart\detail.html:95
 msgid "Checkout"
 msgstr ""
 
@@ -86,11 +91,11 @@ msgstr ""
 msgid "Coupon"
 msgstr ""
 
-#: .\gettingstarted\settings.py:149
+#: .\gettingstarted\settings.py:153
 msgid "English"
 msgstr "English"
 
-#: .\gettingstarted\settings.py:150
+#: .\gettingstarted\settings.py:154
 msgid "Russian"
 msgstr "Russian"
 
@@ -106,11 +111,15 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: .\shop\templates\shop\base.html:37
+#: .\shop\templates\shop\base.html:35
+msgid "Language"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:53
 msgid "Your cart"
 msgstr ""
 
-#: .\shop\templates\shop\base.html:39
+#: .\shop\templates\shop\base.html:55
 #, python-format
 msgid ""
 "\n"
@@ -119,7 +128,7 @@ msgid ""
 "                            "
 msgstr ""
 
-#: .\shop\templates\shop\base.html:45
+#: .\shop\templates\shop\base.html:61
 msgid "Your cart is empty."
 msgstr ""
 

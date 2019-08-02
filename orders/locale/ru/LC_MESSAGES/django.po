@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-18 10:21+0300\n"
+"POT-Creation-Date: 2019-08-02 12:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,16 +44,16 @@ msgstr "почтовый индекс"
 msgid "city"
 msgstr "город"
 
-#: .\orders\templates\orders\order\create.html:3
-#: .\orders\templates\orders\order\create.html:7
+#: .\orders\templates\orders\order\create.html:4
+#: .\orders\templates\orders\order\create.html:8
 msgid "Checkout"
 msgstr "Форма заказа"
 
-#: .\orders\templates\orders\order\create.html:9
+#: .\orders\templates\orders\order\create.html:10
 msgid "Your order"
 msgstr "Ваш заказ"
 
-#: .\orders\templates\orders\order\create.html:19
+#: .\orders\templates\orders\order\create.html:20
 #, python-format
 msgid ""
 "\n"
@@ -61,11 +61,11 @@ msgid ""
 "                    "
 msgstr ""
 
-#: .\orders\templates\orders\order\create.html:26
+#: .\orders\templates\orders\order\create.html:27
 msgid "Total"
 msgstr "Итог"
 
-#: .\orders\templates\orders\order\create.html:30
+#: .\orders\templates\orders\order\create.html:31
 msgid "Place order"
 msgstr "Оплатить заказ"
 
@@ -75,11 +75,18 @@ msgid "Thank you"
 msgstr "Спасибо"
 
 #: .\orders\templates\orders\order\created.html:8
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "        Your order has been successfully completed. Your order number is "
+#| "%(order_id)s</strong>.</p>    "
 msgid ""
 "\n"
 "        <p>Your order has been successfully completed. Your order number is "
 "<strong>%(order_id)s</strong>.</p>\n"
 "    "
-msgstr "\n"
-"Ваш заказ оплачен. Номер заказа <strong>%(order_id)s</strong>.</p>\n"
+msgstr ""
+"\n"
+"        <p>Ваш зака успешно завершён. Номер заказа: "
+"<strong>%(order_id)s</strong>.</p>\n"
+"    "
+
