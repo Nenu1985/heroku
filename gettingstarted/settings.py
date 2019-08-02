@@ -268,3 +268,10 @@ CART_SESSION_ID = 'cart'
 # django-paypal settings
 PAYPAL_RECEIVER_EMAIL = 'nenuzhny85@gmail.com'
 PAYPAL_TEST = True
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}

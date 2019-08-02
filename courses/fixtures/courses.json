@@ -1,0 +1,499 @@
+[
+{
+    "model": "courses.subject",
+    "pk": 1,
+    "fields": {
+        "title": "Mathematics",
+        "slug": "mathematics"
+    }
+},
+{
+    "model": "courses.subject",
+    "pk": 2,
+    "fields": {
+        "title": "Music",
+        "slug": "music"
+    }
+},
+{
+    "model": "courses.subject",
+    "pk": 3,
+    "fields": {
+        "title": "Physics",
+        "slug": "physics"
+    }
+},
+{
+    "model": "courses.subject",
+    "pk": 4,
+    "fields": {
+        "title": "Programming",
+        "slug": "programming"
+    }
+},
+{
+    "model": "courses.subject",
+    "pk": 5,
+    "fields": {
+        "title": "History",
+        "slug": "history"
+    }
+},
+{
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+        "owner": 9,
+        "subject": 4,
+        "title": "Programming 1",
+        "slug": "programming_1",
+        "overview": "some course",
+        "created": "2019-07-19T06:56:55.455Z",
+        "students": []
+    }
+},
+{
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+        "owner": 9,
+        "subject": 4,
+        "title": "Programming 2",
+        "slug": "programming_2",
+        "overview": "Second programming's course",
+        "created": "2019-07-19T07:01:00.450Z",
+        "students": []
+    }
+},
+{
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+        "owner": 3,
+        "subject": 5,
+        "title": "History",
+        "slug": "history",
+        "overview": "The subject is about history",
+        "created": "2019-07-22T11:28:23.454Z",
+        "students": [
+            3
+        ]
+    }
+},
+{
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+        "owner": 9,
+        "subject": 4,
+        "title": "Django course",
+        "slug": "django-course",
+        "overview": "Django programming course by Antonio Mele",
+        "created": "2019-07-30T13:19:15.712Z",
+        "students": [
+            3
+        ]
+    }
+},
+{
+    "model": "courses.course",
+    "pk": 5,
+    "fields": {
+        "owner": 9,
+        "subject": 4,
+        "title": "Python",
+        "slug": "python",
+        "overview": "Python for beginners",
+        "created": "2019-07-30T13:20:21.252Z",
+        "students": [
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "courses.course",
+    "pk": 6,
+    "fields": {
+        "owner": 4,
+        "subject": 4,
+        "title": "REST API",
+        "slug": "rest-api",
+        "overview": "Build a RESTAPI using nested serializers in Django-Rest-Framework",
+        "created": "2019-08-01T13:46:05.886Z",
+        "students": [
+            4
+        ]
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 1,
+    "fields": {
+        "course": 1,
+        "title": "Module 1",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 2,
+    "fields": {
+        "course": 1,
+        "title": "Module 2",
+        "description": "",
+        "order": 1
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 3,
+    "fields": {
+        "course": 1,
+        "title": "Module 3",
+        "description": "",
+        "order": 5
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 4,
+    "fields": {
+        "course": 1,
+        "title": "Module 4",
+        "description": "",
+        "order": 6
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 5,
+    "fields": {
+        "course": 2,
+        "title": "Module 1",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 6,
+    "fields": {
+        "course": 2,
+        "title": "Module 2",
+        "description": "",
+        "order": 1
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 7,
+    "fields": {
+        "course": 1,
+        "title": "Module 5",
+        "description": "",
+        "order": 7
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 8,
+    "fields": {
+        "course": 3,
+        "title": "Module 1",
+        "description": "history module 1",
+        "order": 0
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 9,
+    "fields": {
+        "course": 3,
+        "title": "Module 2",
+        "description": "history module 2",
+        "order": 1
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 10,
+    "fields": {
+        "course": 4,
+        "title": "Introdution",
+        "description": "First module. Introdution",
+        "order": 0
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 11,
+    "fields": {
+        "course": 4,
+        "title": "Blog",
+        "description": "Creating blog application",
+        "order": 1
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 12,
+    "fields": {
+        "course": 4,
+        "title": "Social net",
+        "description": "Our first social net",
+        "order": 2
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 13,
+    "fields": {
+        "course": 5,
+        "title": "What's is python",
+        "description": "Introdition to language",
+        "order": 0
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 14,
+    "fields": {
+        "course": 5,
+        "title": "Data types",
+        "description": "data types overview",
+        "order": 1
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 15,
+    "fields": {
+        "course": 6,
+        "title": "What do we want to achieve?",
+        "description": "The modul's aim",
+        "order": 0
+    }
+},
+{
+    "model": "courses.module",
+    "pk": 16,
+    "fields": {
+        "course": 6,
+        "title": "Implementation Details",
+        "description": "Data, Receiving data",
+        "order": 1
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 1,
+    "fields": {
+        "module": 8,
+        "content_type": 42,
+        "object_id": 1,
+        "order": 1
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 2,
+    "fields": {
+        "module": 8,
+        "content_type": 44,
+        "object_id": 1,
+        "order": 0
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 3,
+    "fields": {
+        "module": 8,
+        "content_type": 45,
+        "object_id": 1,
+        "order": 2
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 4,
+    "fields": {
+        "module": 8,
+        "content_type": 41,
+        "object_id": 1,
+        "order": 3
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 5,
+    "fields": {
+        "module": 9,
+        "content_type": 44,
+        "object_id": 2,
+        "order": 0
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 6,
+    "fields": {
+        "module": 15,
+        "content_type": 42,
+        "object_id": 2,
+        "order": 0
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 7,
+    "fields": {
+        "module": 15,
+        "content_type": 44,
+        "object_id": 3,
+        "order": 1
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 8,
+    "fields": {
+        "module": 15,
+        "content_type": 45,
+        "object_id": 2,
+        "order": 2
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 9,
+    "fields": {
+        "module": 16,
+        "content_type": 42,
+        "object_id": 3,
+        "order": 0
+    }
+},
+{
+    "model": "courses.content",
+    "pk": 10,
+    "fields": {
+        "module": 16,
+        "content_type": 45,
+        "object_id": 3,
+        "order": 1
+    }
+},
+{
+    "model": "courses.text",
+    "pk": 1,
+    "fields": {
+        "owner": 3,
+        "title": "Text material",
+        "created": "2019-07-24T11:14:51.316Z",
+        "updated": "2019-07-24T11:14:51.317Z",
+        "content": "Very interesting text"
+    }
+},
+{
+    "model": "courses.text",
+    "pk": 2,
+    "fields": {
+        "owner": 4,
+        "title": "aims",
+        "created": "2019-08-02T06:05:55.548Z",
+        "updated": "2019-08-02T06:05:55.548Z",
+        "content": "- Provide API to receive data from external providers and update our system with the latest data about events in real time;\r\n- Provide access to support team to  allow the to see the most recent data for each event and to query data."
+    }
+},
+{
+    "model": "courses.text",
+    "pk": 3,
+    "fields": {
+        "owner": 4,
+        "title": "Details",
+        "created": "2019-08-02T06:09:33.744Z",
+        "updated": "2019-08-02T06:09:33.744Z",
+        "content": "Data:\r\nMarkets are kind of bet that a user can do, say a winner\u2019s market means a user is betting on which team will win. Markets are unique per Sport\r\nSelections are teams that are playing a match. Selections are unique per Market\r\nReceiving data:\r\nFor our purposes we can assume this API will be used by a single provider, so no need to keep track of which provider is sending the message.\r\nWe will also not implement authentication for this exercise."
+    }
+},
+{
+    "model": "courses.file",
+    "pk": 1,
+    "fields": {
+        "owner": 3,
+        "title": "some exe file",
+        "created": "2019-07-24T11:20:11.594Z",
+        "updated": "2019-07-24T11:20:11.594Z",
+        "file": "files/setup-antimalware.exe"
+    }
+},
+{
+    "model": "courses.image",
+    "pk": 1,
+    "fields": {
+        "owner": 3,
+        "title": "vinni",
+        "created": "2019-07-24T11:15:27.217Z",
+        "updated": "2019-07-24T11:15:27.217Z",
+        "file": "images/\u0432\u0438\u043d\u043d\u0438.jpg"
+    }
+},
+{
+    "model": "courses.image",
+    "pk": 2,
+    "fields": {
+        "owner": 3,
+        "title": "me",
+        "created": "2019-07-24T11:20:39.491Z",
+        "updated": "2019-07-24T11:20:39.491Z",
+        "file": "images/me.jpg"
+    }
+},
+{
+    "model": "courses.image",
+    "pk": 3,
+    "fields": {
+        "owner": 4,
+        "title": "rest image",
+        "created": "2019-08-02T06:06:17.775Z",
+        "updated": "2019-08-02T06:06:17.775Z",
+        "file": "images/REST.png"
+    }
+},
+{
+    "model": "courses.video",
+    "pk": 1,
+    "fields": {
+        "owner": 3,
+        "title": "video file",
+        "created": "2019-07-24T11:19:52.142Z",
+        "updated": "2019-07-24T11:19:52.142Z",
+        "url": "https://news.tut.by/accidents/646675.html"
+    }
+},
+{
+    "model": "courses.video",
+    "pk": 2,
+    "fields": {
+        "owner": 4,
+        "title": "rest api video",
+        "created": "2019-08-02T06:08:31.282Z",
+        "updated": "2019-08-02T06:08:31.282Z",
+        "url": "https://www.youtube.com/watch?v=bgV39DlmZ2U"
+    }
+},
+{
+    "model": "courses.video",
+    "pk": 3,
+    "fields": {
+        "owner": 4,
+        "title": "Build a Rest API with the Django REST Framework - YouTube",
+        "created": "2019-08-02T06:10:16.476Z",
+        "updated": "2019-08-02T06:12:06.589Z",
+        "url": "https://www.youtube.com/watch?v=tG6O8YF91HE"
+    }
+}
+]
