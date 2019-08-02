@@ -4,6 +4,8 @@ from . import views
 app_name = 'courses'
 
 urlpatterns = [
+    path('mine/', views.ManageCourseListView.as_view(),
+         name='manage-course-list'),
     path('create/',
          views.CourseCreateView.as_view(),
          name='course-create'),
@@ -37,7 +39,9 @@ urlpatterns = [
     path('subject/<slug:subject>/', views.CourseListView.as_view(),
          name='course-list-subject'),
 
-    path('course/<slug:slug>/', views.CourseDetailView.as_view(), name='course-detail'),
+    path('course/<slug:slug>/', views.CourseDetailView.as_view(),
+         name='course-detail'),
+
     path('',
          views.CourseListView.as_view(),
          name='course-list'),

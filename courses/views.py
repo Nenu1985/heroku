@@ -49,7 +49,7 @@ class OwnerEditMixin(object):
 class OwnerCourseMixin(OwnerMixin, LoginRequiredMixin):
     model = Course
     fields = ['subject', 'title', 'slug', 'overview']
-    success_url = reverse_lazy('courses:manage_course_list')
+    success_url = reverse_lazy('courses:manage-course-list')
 
 
 class OwnerCourseEditMixin(OwnerCourseMixin, OwnerEditMixin):
@@ -58,7 +58,7 @@ class OwnerCourseEditMixin(OwnerCourseMixin, OwnerEditMixin):
     fields = ['subject', 'title', 'slug', 'overview']
     # Used by CreateView and UpdateView to redirect the user
     # after the form is successfully submitted
-    success_url = reverse_lazy('courses:manage_course_list')
+    success_url = reverse_lazy('courses:manage-course-list')
     template_name = 'courses/manage/course/form.html'
 
 
