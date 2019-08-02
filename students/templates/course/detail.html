@@ -1,4 +1,6 @@
 {% extends "courses/base.html" %}
+{% load cache %}
+
 {% block title %}
     {{ object.title }}
 {% endblock %}
@@ -26,11 +28,18 @@ Module <span class="order">{{ m.order|add:1 }} </span>
         </ul>
     </div>
     <div class="module">
-        {% for content in module.contents.all %}
-            {% with item=content.item %}
-                <h2>{{ item.title }}</h2>
-                {{ item.render }}
-            {% endwith %}
-        {% endfor %}
+        {# We cache this template fragment using the name module_contents and#}
+        {#passing the current Module object to it. Thus, we uniquely identify the#}
+        {#fragment. This is important to avoid caching a module's contents#}
+        {#and serving the wrong content when a different module is#}
+        {#requested#}
+        {% cache 600 module_contents module request.LANGUAGE_CODE%}
+            {% for content in module.contents.all %}
+                {% with item=content.item %}
+                    <h2>{{ item.title }}</h2>
+                    {{ item.render }}
+                {% endwith %}
+            {% endfor %}
+        {% endcache %}
     </div>
 {% endblock %}
