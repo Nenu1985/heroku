@@ -149,6 +149,11 @@ Chap 2.
                       on Win: memcached start
                       (defaul port == 127.0.0.1:11211)
                         
+Chap 3.
+• Building an API
+• Build a RESTful API
+• Handle authentication and permissions for API views
+• Create API view sets and routers
 
 ## Celery
 launch:
