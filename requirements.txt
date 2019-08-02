@@ -26,3 +26,4 @@ django-rosetta==0.9.3
 django-braces==1.13.0
 django-embed-video==1.1.2
 python-memcached==1.59
+django-memcache-status==2.1

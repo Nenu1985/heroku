@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'courses',
     'students.apps.StudentsConfig',
     'embed_video',
+    'memcache_status',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
