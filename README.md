@@ -151,6 +151,10 @@ Chap 2.
                         
 Chap 3.
 • Building an API
+    Retrieve subjects
+    Retrieve available courses
+    Retrieve course contents
+    Enroll in a course
 • Build a RESTful API
 • Handle authentication and permissions for API views
 • Create API view sets and routers

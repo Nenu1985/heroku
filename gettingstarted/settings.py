@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'students.apps.StudentsConfig',
     'embed_video',
     'memcache_status',
+    'rest_framework',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -280,5 +281,16 @@ CACHES = {
 }
 
 CACHE_MIDDLEWARE_ALIAS = 'default'
-CACHE_MIDDLEWARE_SECONDS = 60 * 15 # 15 minutes
+CACHE_MIDDLEWARE_SECONDS = 60 * 15  # 15 minutes
 CACHE_MIDDLEWARE_KEY_PREFIX = 'gettingstarted'
+
+#
+# The DEFAULT_PERMISSION_CLASSES setting specifies the default
+# permissions  to read, create, update, or delete objects
+# We set DjangoModelPermissionsOrAnonReadOnly as the only default
+# permission class
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':
+        ['rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+         ]
+}
