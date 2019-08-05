@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from ..models import Course
+from rest_framework.authentication import BasicAuthentication
 
 
 class SubjectListView(generics.ListAPIView):
@@ -19,6 +20,10 @@ class SubjectDetailView(generics.RetrieveAPIView):
 
 class CourseEnrollView(APIView):
     """Handles user enrolment in courses"""
+
+    # Users will be identified by the credentials set in the Authorization
+    # header of the HTTP request
+    authentication_classes = (BasicAuthentication,)
 
     def post(self, request, pk, format=None):
         course = get_object_or_404(Course, pk=pk)
