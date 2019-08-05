@@ -124,7 +124,7 @@ DATABASES = {
         'NAME': 'blog',
         'USER': 'postgres',
         'PASSWORD': '1234',
-        'PORT': '5434',
+        'PORT': '5432',
     }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
