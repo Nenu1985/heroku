@@ -1,5 +1,12 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 from . import views
+
+# create a DefaultRouter object and register our view set with the
+# courses prefix
+router = routers.DefaultRouter()
+router.register('courses', views.CourseViewSet)
+
 
 app_name = 'api'
 
@@ -13,4 +20,6 @@ urlpatterns = [
     path('courses/<pk>/enroll/',
          views.CourseEnrollView.as_view(),
          name='course-enroll'),
+    path('', include(router.urls)),
+
 ]

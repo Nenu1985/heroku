@@ -1,8 +1,72 @@
-# Python: Getting Started
+# Приложение содержит все модули учебника Antonio Mele "Django2 by example 2016"
+- Блог;
+- Социальная сеть;
+- Магазин;
+- АОС (автоматизированная обучающая система);
 
-A barebones Django app, which can easily be deployed to Heroku.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+### Product shop functionality
+
+chap 1.
+• Creating the product catalog models, adding them to the administration site,
+and building the basic views to display the catalog
+• Building a shopping cart system using Django sessions to allow users
+to keep selected products while they browse the site
+• Creating the form and functionality to place orders
+• Sending an asynchronous email confirmation to users when they place
+an order
+
+chap 2.
+• Integrate a payment gateway into your project
+• Manage payment notifications
+• Export orders to CSV files
+• Create custom views for the administration site
+• Generate PDF invoices dynamically
+
+chap 3.
+• Creating a coupon system to apply discounts
+• Adding internationalization to your project
+• Using Rosetta to manage translations
+• Translating models using django-parler
+• Building a product recommendation engine
+
+## E-Learning platform
+Chap 1.
+• Create fixtures for models
+• Use model inheritance
+• Create custom model fields
+• Use class-based views and mixins
+• Build formsets
+• Manage groups and permissions
+• Create a CMS
+    - Log in to the CMS
+    - List the courses created by the instructor
+    - Create, edit, and delete courses
+    - Add modules to a course and reorder them
+    - Add different types of content to each module and reorder
+    contents
+    
+Chap 2.
+• Create public views for displaying course information
+• Build a student registration system
+• Manage student enrollment in courses
+• Render diverse course contents
+• Cache content using the cache framework
+    - install memcached on Linux: ./configure && make && make test && sudo make install
+                        on Win: https://www.ubergizmo.com/how-to/install-memcached-windows/ 
+    - start memcached on Lin: memcached -l 127.0.0.1:11211
+                      on Win: memcached start
+                      (defaul port == 127.0.0.1:11211)
+                        
+Chap 3.
+• Building an API
+    Retrieve subjects
+    Retrieve available courses
+    Retrieve course contents
+    Enroll in a course
+• Build a RESTful API
+• Handle authentication and permissions for API views
+• Create API view sets and routers
 
 ## Running Locally
 
@@ -97,67 +161,6 @@ Load data:
 python manage.py loaddata db.json
 ```
 
-## Product shop functionality
-chap 1.
-• Creating the product catalog models, adding them to the administration site,
-and building the basic views to display the catalog
-• Building a shopping cart system using Django sessions to allow users
-to keep selected products while they browse the site
-• Creating the form and functionality to place orders
-• Sending an asynchronous email confirmation to users when they place
-an order
-
-chap 2.
-• Integrate a payment gateway into your project
-• Manage payment notifications
-• Export orders to CSV files
-• Create custom views for the administration site
-• Generate PDF invoices dynamically
-
-chap 3.
-• Creating a coupon system to apply discounts
-• Adding internationalization to your project
-• Using Rosetta to manage translations
-• Translating models using django-parler
-• Building a product recommendation engine
-
-## E-Learning platform
-Chap 1.
-• Create fixtures for models
-• Use model inheritance
-• Create custom model fields
-• Use class-based views and mixins
-• Build formsets
-• Manage groups and permissions
-• Create a CMS
-    - Log in to the CMS
-    - List the courses created by the instructor
-    - Create, edit, and delete courses
-    - Add modules to a course and reorder them
-    - Add different types of content to each module and reorder
-    contents
-    
-Chap 2.
-• Create public views for displaying course information
-• Build a student registration system
-• Manage student enrollment in courses
-• Render diverse course contents
-• Cache content using the cache framework
-    - install memcached on Linux: ./configure && make && make test && sudo make install
-                        on Win: https://www.ubergizmo.com/how-to/install-memcached-windows/ 
-    - start memcached on Lin: memcached -l 127.0.0.1:11211
-                      on Win: memcached start
-                      (defaul port == 127.0.0.1:11211)
-                        
-Chap 3.
-• Building an API
-    Retrieve subjects
-    Retrieve available courses
-    Retrieve course contents
-    Enroll in a course
-• Build a RESTful API
-• Handle authentication and permissions for API views
-• Create API view sets and routers
 
 ## Celery
 launch:
