@@ -64,9 +64,9 @@ class Content(models.Model):
     module = models.ForeignKey(Module,
                                related_name='contents',
                                on_delete=models.CASCADE)
-
-    _limit = models.Q(app_label='courses', model='text') | \
-             models.Q(app_label='courses', model='pdf')
+    #
+    # _limit = models.Q(app_label='courses', model='text') | \
+    #          models.Q(app_label='courses', model='pdf')
 
     # model__in field lookup to filter the query to the ContentType objects
     # with a model attribute that is 'text', 'video'...
