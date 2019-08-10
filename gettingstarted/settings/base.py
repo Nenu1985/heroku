@@ -15,10 +15,11 @@ import django_heroku
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)BASE_DIR
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__,
+os.pardir))))
 # Quick-start development settings - unsuitable for production
+
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -53,7 +54,7 @@ INSTALLED_APPS = [
     'collage',
     # 'bootstrap4',
     'crispy_forms',
-    'pizzashopapp',
+    'pizzashopapp.apps.PizzashopappConfig',
     # 'djcelery',
     'celery_pb',
     'social_django',
@@ -160,7 +161,7 @@ LANGUAGES = (
 )
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale/'),
+    os.path.join(BASE_DIR, '../../locale/'),
 )
 
 TIME_ZONE = "Europe/Minsk"
@@ -184,9 +185,9 @@ GLOBAL_SETTINGS = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, '../../staticfiles')
 STATIC_URL = "/static/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../../media')
 MEDIA_URL = '/media/'
 UPLOAD_ASYNC = os.path.join(MEDIA_ROOT, 'upload_async')
 

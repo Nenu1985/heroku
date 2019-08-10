@@ -5,12 +5,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 import hello.views
-from . import settings
+from gettingstarted.settings import base
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth import views as auth_views
 from django.conf.urls.i18n import i18n_patterns
-from django.utils.translation import gettext_lazy as _
 
 urlpatterns = i18n_patterns(
     path('hello/', include('hello.urls', namespace='hello')),
@@ -47,6 +46,6 @@ urlpatterns = i18n_patterns(
          name='password_reset_complete'),
     path("", hello.views.index, name="index"),
 )
-if settings.DEBUG:
+if base.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(base.MEDIA_URL, document_root=base.MEDIA_ROOT)

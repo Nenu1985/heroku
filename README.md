@@ -186,3 +186,16 @@ create folders "en" and "ru" in the "locale" folder;
 2. run: ``django-admin makemessages --all --ignore venv``
 3. edit msgstr variable in the files django.po for each locale
 4. run ``django-admin compilemessages``
+
+## start uWsgi server without configurations:
+Generate static files:
+python manage.py collectstatic --settings=gettingstarted.settings.pro
+
+launch uwsgi with a command:
+```
+uwsgi --module=gettingstarted.wsgi:application \
+--env=DJANGO_SETTINGS_MODULE=gettingstarted.settings.pro \
+--master --pidfile=/tmp/project-master.pid \
+--http=127.0.0.1:8000 \
+--uid=1000 --virtualenv=./ENV
+```

@@ -47,7 +47,7 @@
         </div>
         <div id="subheader">
             <div class="cart">
-                {# cart variable is from cart.context_processor.py, see settings.py #}
+                {# cart variable is from cart.context_processor.py, see base.py #}
                 {% with total_items=cart|length %}
                     {% if cart|length > 0 %}
                         {% trans "Your cart" %}:
