@@ -199,3 +199,36 @@ uwsgi --module=gettingstarted.wsgi:application \
 --http=127.0.0.1:8000 \
 --uid=1000 --virtualenv=./ENV
 ```
+
+## Start NGINX server:
+1. Create a config file nginx.conf;
+(see ./gettingstarted/config/nginx.conf)
+
+2. Create a soft link from our file to a nginx folder
+/etx/nginx/sites-enabled/:
+
+`ln -s /mnt/e/py/heroku/gettingstarted/config/nginx.conf /etc/nginx/sites-enabled/gettingstarted.conf`
+
+3. Run uwsgi with our custom config:
+
+comments: as we use a socket to communicate with nginx we need to
+get an access to the socket (writing) by adding a command `--chmod-socket=666`.
+That's because nginx server is created by another user (www-data) and by default
+denited to access to sockets.
+
+`uwsgi --ini gettingstarted/config/uwsgi.ini --chmod-socket=666`
+
+4. Delete default nginx config file by path: '/etc/nginx/sites-enabled'
+
+5. In another shell run nginx:
+ - before check if port 80 is unused! (in common iis services are listening this port)
+ 
+``service nginx start``
+- after that you can see an empty page by address: '127.0.0.1'
+
+(
+nginx user is in the '/etc/nginx.conf' file
+logs: '/var/log/nginx/error.log'
+)
+
+

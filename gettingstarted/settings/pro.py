@@ -4,7 +4,7 @@ DEBUG = False
 ADMINS = (
     ('Antonio M', 'email@mydomain.com'),
 )
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['gettingstartedproject_nenu.com', 'www.gettingstartedproject_nenu.com', '127.0.0.1']
 
 DATABASES = {
 'default': {
