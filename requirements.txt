@@ -19,7 +19,7 @@ aiofiles>=0.4.0
 django-progressbarupload
 social-auth-app-django==3.1.0
 sorl-thumbnail==12.5.0
-flower==0.9.3
+flower==1.2.0
 django-paypal==1.0.0
 WeasyPrint==48
 django-rosetta==0.9.3
